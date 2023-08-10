@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CropRotation.ModVersion>Installed mod-version: {0}</CropRotation.ModVersion>
+  <CropRotation.ChangeValue>Change per each crop-cycle calculation: {0}</CropRotation.ChangeValue>
+  <CropRotation.ChangeValueTT>When calculating yield, this is the amount added/removed per previous crop planted. This is limited by the maximum history-count defined below.</CropRotation.ChangeValueTT>
+  <CropRotation.HighLimit>Maximum yield multiplier: {0}</CropRotation.HighLimit>
+  <CropRotation.HighLimitTT>The highest multiplier for good crop-rotation</CropRotation.HighLimitTT>
+  <CropRotation.LowLimit>Minimum yield multiplier: {0}</CropRotation.LowLimit>
+  <CropRotation.LowLimitTT>The lowest multiplier for lack of crop-rotation</CropRotation.LowLimitTT>
+  <CropRotation.MaxHistory>Maximum crop-history: {0}</CropRotation.MaxHistory>
+  <CropRotation.MaxHistoryTT>The amount of previous crops planted to take into account when calculating yield-changes</CropRotation.MaxHistoryTT>
+  <CropRotation.CropRotationMultiplier>Crop-rotation multiplier: x{0}</CropRotation.CropRotationMultiplier>
+  <CropRotation.ModifiedYieldLowInfo>Lowered yield: {0}</CropRotation.ModifiedYieldLowInfo>
+  <CropRotation.ModifiedYieldLow>Lowered yield</CropRotation.ModifiedYieldLow>
+  <CropRotation.ModifiedYieldHighInfo>Increased yield: {0}</CropRotation.ModifiedYieldHighInfo>
+  <CropRotation.ModifiedYieldHigh>Increased yield</CropRotation.ModifiedYieldHigh>
+  <CropRotation.ModifiedYieldLowTT>Due to lack of crop rotation the yield when harvesting will be lowered.
+Try to change your sown crops regularly to increase yield.</CropRotation.ModifiedYieldLowTT>
+  <CropRotation.ModifiedYieldHighTT>Due to good crop rotation the yield when harvesting will be increased.</CropRotation.ModifiedYieldHighTT>
+</LanguageData>
