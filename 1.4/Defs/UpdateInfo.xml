@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TabulaRasa.UpdateDef Abstract="true" Name="CropRotation_UpdateInfoBase">
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3018130534</linkUrl>
+		<banner>UpdateInfo/CropRotation</banner>
+	</TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+		<defName>CropRotation_1_4_1</defName>
+		<date>2023/8/11</date>
+		<content>This update adds automatic crop-rotation to growing zones.
+After harvesting a crop, pawns will sow the next available crop selected.
+The automatic rotation is only available on zones where the base crop is a harvestable plant and not a tree.</content>
+	</TabulaRasa.UpdateDef>
+</Defs>
+

@@ -17,4 +17,6 @@
   <CropRotation.ModifiedYieldLowTT>Due to lack of crop rotation the yield when harvesting will be lowered.
 Try to change your sown crops regularly to increase yield.</CropRotation.ModifiedYieldLowTT>
   <CropRotation.ModifiedYieldHighTT>Due to good crop rotation the yield when harvesting will be increased.</CropRotation.ModifiedYieldHighTT>
+  <CropRotation.ExtraPlantDesc>Determine which extra plant should be sown here. Pawns will alternate between all defined plants.</CropRotation.ExtraPlantDesc>
+  <CropRotation.NoExtraPlantSelected>Extra plants</CropRotation.NoExtraPlantSelected>
 </LanguageData>

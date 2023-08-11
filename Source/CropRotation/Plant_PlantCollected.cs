@@ -9,21 +9,8 @@ public static class Plant_PlantCollected
 {
     public static void Prefix(Plant __instance, PlantDestructionMode plantDestructionMode)
     {
-        if (!__instance.def.plant.HarvestDestroys)
+        if (!CropRotation.IsValidCrop(__instance.def))
         {
-            Log.Message($"{__instance} reharvestable");
-            return;
-        }
-
-        if (__instance.def.plant.IsTree)
-        {
-            Log.Message($"{__instance} is tree");
-            return;
-        }
-
-        if (plantDestructionMode != PlantDestructionMode.Chop)
-        {
-            Log.Message($"{__instance} is not chopped {plantDestructionMode}");
             return;
         }
 
@@ -31,7 +18,6 @@ public static class Plant_PlantCollected
 
         if (plantPlace.GetZone(__instance.Map) is not Zone_Growing)
         {
-            Log.Message($"{__instance} is not in zone");
             return;
         }
 
@@ -42,6 +28,6 @@ public static class Plant_PlantCollected
             return;
         }
 
-        cropHistoryComponent.SaveCrop(plantPlace, __instance);
+        cropHistoryComponent.SaveCropToHistory(plantPlace, __instance);
     }
 }

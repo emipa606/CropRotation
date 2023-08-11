@@ -1,5 +1,9 @@
 # Changelog for CropRotation
 
+1.4.1 - Added automatic crop rotation.
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.4.0 - First publish.
 Used DeepL to update translations for ChineseSimplified, French, German
 

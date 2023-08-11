@@ -10,6 +10,16 @@ public static class Plant_GetInspectString
 {
     public static void Postfix(ref string __result, Plant __instance)
     {
+        if (string.IsNullOrEmpty(__result))
+        {
+            return;
+        }
+
+        if (!CropRotation.IsValidCrop(__instance.def))
+        {
+            return;
+        }
+
         var mapComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
 
         if (mapComponent == null)

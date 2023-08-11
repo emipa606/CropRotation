@@ -18,4 +18,6 @@
   <CropRotation.ModifiedYieldLowTT>L'absence de rotation des cultures entraîne une baisse du rendement au moment de la récolte.
 Essayez de changer régulièrement les cultures semées pour augmenter le rendement.</CropRotation.ModifiedYieldLowTT>
   <CropRotation.ModifiedYieldHighTT>Une bonne rotation des cultures permet d'augmenter le rendement lors de la récolte.</CropRotation.ModifiedYieldHighTT>
+  <CropRotation.ExtraPlantDesc>Déterminez quelle plante supplémentaire doit être semée ici. Les pions alterneront entre toutes les plantes définies.</CropRotation.ExtraPlantDesc>
+  <CropRotation.NoExtraPlantSelected>Plantes supplémentaires</CropRotation.NoExtraPlantSelected>
 </LanguageData>

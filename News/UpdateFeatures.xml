@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="CropRotation_UpdateFeatureBase">
+		<modNameReadable>CropRotation</modNameReadable>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3018130534</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="CropRotation_UpdateFeatureBase">
+		<defName>CropRotation_1_4_1</defName>
+		<assemblyVersion>1.4.1</assemblyVersion>
+		<content>This update adds automatic crop-rotation to growing zones.
+After harvesting a crop, pawns will sow the next available crop selected.
+The automatic rotation is only available on zones where the base crop is a harvestable plant and not a tree.</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
+

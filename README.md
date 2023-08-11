@@ -3,7 +3,7 @@
 ![Image](https://i.imgur.com/iCj5o7O.png)
 
 
-Planting the same crop over and over is fine in RimWorld but in real life this causes issues. 
+Planting the same crop over and over is fine in Rimworld but in real life this causes issues. 
 The soil looses its fertility and pests and diseases happily make themselves a permanent home as their preferred food source is guaranteed.
 Crop rotation helps return nutrients to the soil without synthetic inputs.
 
@@ -45,3 +45,4 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/3018130534]Last updated 2023-08-11

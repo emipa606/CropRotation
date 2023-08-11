@@ -18,4 +18,6 @@
   <CropRotation.ModifiedYieldLowTT>由于缺乏轮作，收割时的产量会降低。
 尽量定期更换播种作物，以提高产量。</CropRotation.ModifiedYieldLowTT>
   <CropRotation.ModifiedYieldHighTT>由于良好的轮作，收获时的产量会增加。</CropRotation.ModifiedYieldHighTT>
+  <CropRotation.ExtraPlantDesc>确定应在此处播种哪种额外的植物。棋子将在所有确定的植物之间交替移动。</CropRotation.ExtraPlantDesc>
+  <CropRotation.NoExtraPlantSelected>额外的植物</CropRotation.NoExtraPlantSelected>
 </LanguageData>

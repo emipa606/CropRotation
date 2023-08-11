@@ -18,4 +18,6 @@
   <CropRotation.ModifiedYieldLowTT>Durch fehlende Fruchtfolge wird der Ertrag bei der Ernte verringert.
 Versuchen Sie, Ihre Aussaaten regelmäßig zu wechseln, um den Ertrag zu steigern.</CropRotation.ModifiedYieldLowTT>
   <CropRotation.ModifiedYieldHighTT>Durch eine gute Fruchtfolge wird der Ertrag bei der Ernte erhöht.</CropRotation.ModifiedYieldHighTT>
+  <CropRotation.ExtraPlantDesc>Bestimmen Sie, welche zusätzliche Pflanze hier ausgesät werden soll. Die Bauern wechseln zwischen allen festgelegten Pflanzen ab.</CropRotation.ExtraPlantDesc>
+  <CropRotation.NoExtraPlantSelected>Zusätzliche Pflanzen</CropRotation.NoExtraPlantSelected>
 </LanguageData>
