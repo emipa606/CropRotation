@@ -7,7 +7,7 @@ namespace CropRotation;
 [HarmonyPatch(typeof(Plant), nameof(Plant.PlantCollected))]
 public static class Plant_PlantCollected
 {
-    public static void Prefix(Plant __instance, PlantDestructionMode plantDestructionMode)
+    public static void Prefix(Plant __instance)
     {
         if (!CropRotation.IsValidCrop(__instance.def))
         {
@@ -24,7 +24,7 @@ public static class Plant_PlantCollected
         var cropHistoryComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
         if (cropHistoryComponent == null)
         {
-            Log.Warning("[CropRotation]: Failed to find the mapcomponent, should not happen.");
+            CropRotation.LogMessage($"Failed to find the mapcomponent for {__instance.Map}", warning: true);
             return;
         }
 

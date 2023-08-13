@@ -1,5 +1,15 @@
 # Changelog for CropRotation
 
+1.4.2 - Added option to require three crops to improve yield while two crops only stops it from lowering
+Added research projects, basic allows rotating between two crops, advanced between any number. Can be turned off in the settings.
+Added yield improvement by fire, burned crops increased yield of the next harvest
+Added yield improvement by time, if left empty a land will regain yield over time
+Added option for rotation to only slow down yield lowering, not increase it
+Added info about average yield-change for a selected growing-zone
+Changed the yield-calculation by counting forward in time instead of backwards.
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.4.1 - Added automatic crop rotation.
 Used DeepL to update translations for ChineseSimplified, French, German
 

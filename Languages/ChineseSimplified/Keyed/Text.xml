@@ -20,4 +20,24 @@
   <CropRotation.ModifiedYieldHighTT>由于良好的轮作，收获时的产量会增加。</CropRotation.ModifiedYieldHighTT>
   <CropRotation.ExtraPlantDesc>确定应在此处播种哪种额外的植物。棋子将在所有确定的植物之间交替移动。</CropRotation.ExtraPlantDesc>
   <CropRotation.NoExtraPlantSelected>额外的植物</CropRotation.NoExtraPlantSelected>
+  <CropRotation.ZoneLowYield>降低产量（平均）：{0}</CropRotation.ZoneLowYield>
+  <CropRotation.ZoneHighYield>提高产量（平均）：{0}</CropRotation.ZoneHighYield>
+  <CropRotation.RequireThree>要求改良三种不同的作物</CropRotation.RequireThree>
+  <CropRotation.RequireThreeTT>只有轮作三种或三种以上作物的地区产量才会增加。轮作两种作物不会降低产量。</CropRotation.RequireThreeTT>
+  <CropRotation.AlwaysLower>轮作仍会降低产量</CropRotation.AlwaysLower>
+  <CropRotation.AlwaysLowerTT>如果进行检查，轮作仍会降低产量，但速度只有不轮作的一半。</CropRotation.AlwaysLowerTT>
+  <CropRotation.FireIncreases>焚烧作物可提高产量</CropRotation.FireIncreases>
+  <CropRotation.FireIncreasesTT>如果农作物被大火烧毁，其部分生长百分比会被添加到当前的产量计算中。</CropRotation.FireIncreasesTT>
+  <CropRotation.FireIncreasePercent>烧毁植株的生长量占下次产量的百分比：{0}</CropRotation.FireIncreasePercent>
+  <CropRotation.FireIncreasePercentTT>被焚烧植物的生长百分比在焚烧后会增加多少到下一茬作物的产量中。</CropRotation.FireIncreasePercentTT>
+  <CropRotation.TimeIncreases>未播种的小区会慢慢恢复产量</CropRotation.TimeIncreases>
+  <CropRotation.TimeIncreasesTT>如果不播种，随着时间的推移，细胞会慢慢恢复产量，最高可达 100%</CropRotation.TimeIncreasesTT>
+  <CropRotation.TimeIncreasesPerQuandrum>每个空仓的产量恢复百分比：{0}</CropRotation.TimeIncreasesPerQuandrum>
+  <CropRotation.TimeIncreasesPerQuandrumTT>在一个 "昆德鲁姆 "的时间里，这就是产量的恢复情况，最高产量可达 100%。</CropRotation.TimeIncreasesPerQuandrumTT>
+  <CropRotation.VerboseLogging>冗长日志记录</CropRotation.VerboseLogging>
+  <CropRotation.VerboseLoggingTT>用于调试和获取额外信息</CropRotation.VerboseLoggingTT>
+  <CropRotation.RequireResearch>自动旋转需要研究</CropRotation.RequireResearch>
+  <CropRotation.RequireResearchTT>要实现田地作物的自动轮作，您需要先完成研究项目</CropRotation.RequireResearchTT>
+  <CropRotation.RequireResearchOngoingTT>注意：要更改此选项，您不能已加载游戏
+要自动旋转田地里的作物，您需要先完成研究项目</CropRotation.RequireResearchOngoingTT>
 </LanguageData>

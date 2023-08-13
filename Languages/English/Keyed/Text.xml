@@ -10,6 +10,8 @@
   <CropRotation.MaxHistory>Maximum crop-history: {0}</CropRotation.MaxHistory>
   <CropRotation.MaxHistoryTT>The amount of previous crops planted to take into account when calculating yield-changes</CropRotation.MaxHistoryTT>
   <CropRotation.CropRotationMultiplier>Crop-rotation multiplier: x{0}</CropRotation.CropRotationMultiplier>
+  <CropRotation.ZoneLowYield>Lowered yield (average): {0}</CropRotation.ZoneLowYield>
+  <CropRotation.ZoneHighYield>Increased yield (average): {0}</CropRotation.ZoneHighYield>
   <CropRotation.ModifiedYieldLowInfo>Lowered yield: {0}</CropRotation.ModifiedYieldLowInfo>
   <CropRotation.ModifiedYieldLow>Lowered yield</CropRotation.ModifiedYieldLow>
   <CropRotation.ModifiedYieldHighInfo>Increased yield: {0}</CropRotation.ModifiedYieldHighInfo>
@@ -17,6 +19,24 @@
   <CropRotation.ModifiedYieldLowTT>Due to lack of crop rotation the yield when harvesting will be lowered.
 Try to change your sown crops regularly to increase yield.</CropRotation.ModifiedYieldLowTT>
   <CropRotation.ModifiedYieldHighTT>Due to good crop rotation the yield when harvesting will be increased.</CropRotation.ModifiedYieldHighTT>
-  <CropRotation.ExtraPlantDesc>Determine which extra plant should be sown here. Pawns will alternate between all defined plants.</CropRotation.ExtraPlantDesc>
+  <CropRotation.ExtraPlantDesc>Determine which extra plant should be sown here. Pawns will alternate between all defined crops.</CropRotation.ExtraPlantDesc>
   <CropRotation.NoExtraPlantSelected>Extra plants</CropRotation.NoExtraPlantSelected>
+  <CropRotation.RequireThree>Require three different crops for improvement</CropRotation.RequireThree>
+  <CropRotation.RequireThreeTT>If checked only zones that rotates between three or more crops will see an increase in yield. Rotation of two crops will just not make the yield lower.</CropRotation.RequireThreeTT>
+  <CropRotation.AlwaysLower>Rotating crops still lowers yield</CropRotation.AlwaysLower>
+  <CropRotation.AlwaysLowerTT>If checked rotating crops will still lower yield but at half the speed of not switching crops. </CropRotation.AlwaysLowerTT>
+  <CropRotation.FireIncreases>Burning crops increases yield</CropRotation.FireIncreases>
+  <CropRotation.FireIncreasesTT>If a crop is destroyed by fire, a part of its growth-percent are added to the current yield-calculations.</CropRotation.FireIncreasesTT>
+  <CropRotation.FireIncreasePercent>Percent of burned plants growth to add to next yield: {0}</CropRotation.FireIncreasePercent>
+  <CropRotation.FireIncreasePercentTT>How much of the burned plants growth-percent will be added to the next crops yield when burned.</CropRotation.FireIncreasePercentTT>
+  <CropRotation.TimeIncreases>Cells left unsown will slowly regain yield</CropRotation.TimeIncreases>
+  <CropRotation.TimeIncreasesTT>If left unsown, cells will slowly regain yield up to 100% over time</CropRotation.TimeIncreasesTT>
+  <CropRotation.TimeIncreasesPerQuandrum>Yield percent regained per quandrum left empty: {0}</CropRotation.TimeIncreasesPerQuandrum>
+  <CropRotation.TimeIncreasesPerQuandrumTT>Over one Quandrum this is how much yield is regained, up to a maximum of 100% yield.</CropRotation.TimeIncreasesPerQuandrumTT>
+  <CropRotation.VerboseLogging>Verbose logging</CropRotation.VerboseLogging>
+  <CropRotation.VerboseLoggingTT>For debugging and extra info</CropRotation.VerboseLoggingTT>
+  <CropRotation.RequireResearch>Auto-rotation requires research</CropRotation.RequireResearch>
+  <CropRotation.RequireResearchTT>To automatically rotate the crops of the fields you will need to complete research-projects first</CropRotation.RequireResearchTT>
+  <CropRotation.RequireResearchOngoingTT>NOTE: To change this option you cannot have a game loaded
+To automatically rotate the crops of the fields you will need to complete research-projects first</CropRotation.RequireResearchOngoingTT>
 </LanguageData>

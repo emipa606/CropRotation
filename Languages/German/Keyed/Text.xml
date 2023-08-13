@@ -20,4 +20,24 @@ Versuchen Sie, Ihre Aussaaten regelmäßig zu wechseln, um den Ertrag zu steiger
   <CropRotation.ModifiedYieldHighTT>Durch eine gute Fruchtfolge wird der Ertrag bei der Ernte erhöht.</CropRotation.ModifiedYieldHighTT>
   <CropRotation.ExtraPlantDesc>Bestimmen Sie, welche zusätzliche Pflanze hier ausgesät werden soll. Die Bauern wechseln zwischen allen festgelegten Pflanzen ab.</CropRotation.ExtraPlantDesc>
   <CropRotation.NoExtraPlantSelected>Zusätzliche Pflanzen</CropRotation.NoExtraPlantSelected>
+  <CropRotation.ZoneLowYield>Gesenkter Ertrag (Durchschnitt): {0}</CropRotation.ZoneLowYield>
+  <CropRotation.ZoneHighYield>Erhöhter Ertrag (Durchschnitt): {0}</CropRotation.ZoneHighYield>
+  <CropRotation.RequireThree>Erfordern drei verschiedene Kulturen zur Verbesserung</CropRotation.RequireThree>
+  <CropRotation.RequireThreeTT>Nur in Gebieten, in denen drei oder mehr Kulturen im Wechsel angebaut werden, ist eine Ertragssteigerung zu beobachten. Bei einer Fruchtfolge von zwei Kulturen wird der Ertrag nicht geringer.</CropRotation.RequireThreeTT>
+  <CropRotation.AlwaysLower>Fruchtfolge senkt weiterhin den Ertrag</CropRotation.AlwaysLower>
+  <CropRotation.AlwaysLowerTT>Wird dies überprüft, so führt der Fruchtwechsel zwar immer noch zu einem geringeren Ertrag, aber nur halb so schnell wie der Verzicht auf einen Fruchtwechsel.</CropRotation.AlwaysLowerTT>
+  <CropRotation.FireIncreases>Das Verbrennen von Feldfrüchten erhöht den Ertrag</CropRotation.FireIncreases>
+  <CropRotation.FireIncreasesTT>Wird eine Kultur durch ein Feuer zerstört, wird ein Teil des Wachstumsanteils zu den aktuellen Ertragsberechnungen hinzugefügt.</CropRotation.FireIncreasesTT>
+  <CropRotation.FireIncreasePercent>Prozentsatz des Wachstums der verbrannten Pflanzen, der zum nächsten Ertrag hinzukommt: {0}</CropRotation.FireIncreasePercent>
+  <CropRotation.FireIncreasePercentTT>Wie viel Prozent des Wachstums der verbrannten Pflanzen werden bei der Verbrennung zum Ertrag der nächsten Ernte hinzugefügt.</CropRotation.FireIncreasePercentTT>
+  <CropRotation.TimeIncreases>Ungesäte Zellen gewinnen langsam wieder an Ertrag</CropRotation.TimeIncreases>
+  <CropRotation.TimeIncreasesTT>Bleiben die Zellen unbesät, gewinnen sie im Laufe der Zeit langsam bis zu 100 % an Ertrag zurück.</CropRotation.TimeIncreasesTT>
+  <CropRotation.TimeIncreasesPerQuandrum>Wiedergewonnene Ausbeute in Prozent pro leer gebliebenem Quandrum: {0}</CropRotation.TimeIncreasesPerQuandrum>
+  <CropRotation.TimeIncreasesPerQuandrumTT>Über ein Quandrum wird so viel Ertrag zurückgewonnen, bis zu einem Maximum von 100% Ertrag.</CropRotation.TimeIncreasesPerQuandrumTT>
+  <CropRotation.VerboseLogging>Ausführliche Protokollierung</CropRotation.VerboseLogging>
+  <CropRotation.VerboseLoggingTT>Für die Fehlersuche und zusätzliche Informationen</CropRotation.VerboseLoggingTT>
+  <CropRotation.RequireResearch>Autodrehung erfordert Forschung</CropRotation.RequireResearch>
+  <CropRotation.RequireResearchTT>Um die Kulturen auf den Feldern automatisch zu wechseln, müssen Sie zunächst Forschungsprojekte abschließen</CropRotation.RequireResearchTT>
+  <CropRotation.RequireResearchOngoingTT>HINWEIS: Um diese Option zu ändern, darf kein Spiel geladen sein.
+Um die Kulturen auf den Feldern automatisch zu wechseln, müssen Sie zuerst Forschungsprojekte abschließen</CropRotation.RequireResearchOngoingTT>
 </LanguageData>

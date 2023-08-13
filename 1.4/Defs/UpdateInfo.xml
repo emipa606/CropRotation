@@ -1,15 +1,27 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<TabulaRasa.UpdateDef Abstract="true" Name="CropRotation_UpdateInfoBase">
-		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3018130534</linkUrl>
-		<banner>UpdateInfo/CropRotation</banner>
-	</TabulaRasa.UpdateDef>
-	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
-		<defName>CropRotation_1_4_1</defName>
-		<date>2023/8/11</date>
-		<content>This update adds automatic crop-rotation to growing zones.
+  <TabulaRasa.UpdateDef Abstract="true" Name="CropRotation_UpdateInfoBase">
+    <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3018130534</linkUrl>
+    <banner>UpdateInfo/CropRotation</banner>
+  </TabulaRasa.UpdateDef>
+  <TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+    <defName>CropRotation_1_4_1</defName>
+    <date>2023/8/11</date>
+    <content>This update adds automatic crop-rotation to growing zones.
 After harvesting a crop, pawns will sow the next available crop selected.
 The automatic rotation is only available on zones where the base crop is a harvestable plant and not a tree.</content>
+  </TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+		<defName>CropRotation_1_4_2</defName>
+		<date>2023/8/13</date>
+		<content>This update adds multiple changes that can all be changed in the mod-options.
+There is now two research-projects for the auto-rotation. Basic for rotation between two crops, advanced between any amount of crops.
+A new option for requiring three crop-rotation for yield to increase while two only stops it from lowering.
+A new option for rotation to just lowering the yield at half the rate of not rotating.
+A new option to let yield improve by burning crops, letting some percent of their current growth get added to the yield-calculations for the following crops.
+A new option to make yield improve over time if no crop is sown, up to the normal 100%.
+Also added information to the growing-zone info to show the average yield-modifier for the zone.
+
+Thank you for all suggestions, makes this mod fun to expand upon!</content>
 	</TabulaRasa.UpdateDef>
 </Defs>
-

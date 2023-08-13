@@ -20,4 +20,24 @@ Essayez de changer régulièrement les cultures semées pour augmenter le rendem
   <CropRotation.ModifiedYieldHighTT>Une bonne rotation des cultures permet d'augmenter le rendement lors de la récolte.</CropRotation.ModifiedYieldHighTT>
   <CropRotation.ExtraPlantDesc>Déterminez quelle plante supplémentaire doit être semée ici. Les pions alterneront entre toutes les plantes définies.</CropRotation.ExtraPlantDesc>
   <CropRotation.NoExtraPlantSelected>Plantes supplémentaires</CropRotation.NoExtraPlantSelected>
+  <CropRotation.ZoneLowYield>Rendement abaissé (moyen) : {0}</CropRotation.ZoneLowYield>
+  <CropRotation.ZoneHighYield>Augmentation du rendement (moyenne) : {0}</CropRotation.ZoneHighYield>
+  <CropRotation.RequireThree>Nécessité de trois cultures différentes pour l'amélioration</CropRotation.RequireThree>
+  <CropRotation.RequireThreeTT>Si l'on vérifie, seules les zones qui pratiquent la rotation entre trois cultures ou plus verront une augmentation de leur rendement. La rotation de deux cultures n'entraînera pas de baisse de rendement.</CropRotation.RequireThreeTT>
+  <CropRotation.AlwaysLower>La rotation des cultures réduit encore le rendement</CropRotation.AlwaysLower>
+  <CropRotation.AlwaysLowerTT>Si l'on vérifie la rotation des cultures, le rendement diminuera encore, mais deux fois moins vite que si l'on ne change pas de culture.</CropRotation.AlwaysLowerTT>
+  <CropRotation.FireIncreases>Le brûlage des cultures augmente le rendement</CropRotation.FireIncreases>
+  <CropRotation.FireIncreasesTT>Si une culture est détruite par le feu, une partie de son pourcentage de croissance est ajoutée aux calculs de rendement actuels.</CropRotation.FireIncreasesTT>
+  <CropRotation.FireIncreasePercent>Pourcentage de croissance des plantes brûlées à ajouter au rendement suivant : {0}</CropRotation.FireIncreasePercent>
+  <CropRotation.FireIncreasePercentTT>Le pourcentage de croissance des plantes brûlées qui sera ajouté au rendement de la prochaine culture.</CropRotation.FireIncreasePercentTT>
+  <CropRotation.TimeIncreases>Les cellules non ensemencées reprendront lentement leur rendement</CropRotation.TimeIncreases>
+  <CropRotation.TimeIncreasesTT>Si elles ne sont pas ensemencées, les cellules regagnent lentement du rendement, jusqu'à 100 % avec le temps.</CropRotation.TimeIncreasesTT>
+  <CropRotation.TimeIncreasesPerQuandrum>Pourcentage de rendement regagné par quandrum laissé vide : {0}</CropRotation.TimeIncreasesPerQuandrum>
+  <CropRotation.TimeIncreasesPerQuandrumTT>Sur un Quandrum, c'est le rendement qui est récupéré, jusqu'à un maximum de 100 %.</CropRotation.TimeIncreasesPerQuandrumTT>
+  <CropRotation.VerboseLogging>Journalisation verbeuse</CropRotation.VerboseLogging>
+  <CropRotation.VerboseLoggingTT>Pour le débogage et des informations supplémentaires</CropRotation.VerboseLoggingTT>
+  <CropRotation.RequireResearch>L'auto-rotation nécessite des recherches</CropRotation.RequireResearch>
+  <CropRotation.RequireResearchTT>Pour procéder à la rotation automatique des cultures dans les champs, vous devez d'abord mener à bien des projets de recherche.</CropRotation.RequireResearchTT>
+  <CropRotation.RequireResearchOngoingTT>REMARQUE : Pour modifier cette option, il ne faut pas qu'un jeu soit chargé.
+Pour faire pivoter automatiquement les cultures des champs, vous devez d'abord mener à bien des projets de recherche.</CropRotation.RequireResearchOngoingTT>
 </LanguageData>

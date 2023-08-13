@@ -14,7 +14,8 @@ public static class Zone_Growing_GetGizmos
         foreach (var gizmo in values)
         {
             yield return gizmo;
-            if (done || gizmo is not Command_SetPlantToGrow)
+            if (done || gizmo is not Command_SetPlantToGrow || CropRotationMod.instance.Settings.RequireResearch &&
+                !ResearchProjectDef.Named("BasicCropRotation").IsFinished)
             {
                 continue;
             }
@@ -34,12 +35,27 @@ public static class Zone_Growing_GetGizmos
             }
 
             var extraCrops = component.GetExtraCropsForZone(__instance);
+            var showAddNew = true;
             foreach (var extraCrop in extraCrops)
             {
                 yield return new Command_SetExtraPlantToGrow(extraCrop)
                 {
                     settable = __instance
                 };
+
+                if (!CropRotationMod.instance.Settings.RequireResearch ||
+                    ResearchProjectDef.Named("AdvancedCropRotation").IsFinished)
+                {
+                    continue;
+                }
+
+                showAddNew = false;
+                break;
+            }
+
+            if (!showAddNew)
+            {
+                continue;
             }
 
             yield return new Command_SetExtraPlantToGrow(null)
