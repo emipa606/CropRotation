@@ -11,6 +11,7 @@ public class CropHistoryMapComponent : MapComponent
     private Dictionary<IntVec3, int> cropEmptyTimer = new Dictionary<IntVec3, int>();
     private List<IntVec3> cropEmptyTimerKeys;
     private List<int> cropEmptyTimerValues;
+
     private Dictionary<IntVec3, string> cropHistory = new Dictionary<IntVec3, string>();
     private List<IntVec3> cropHistoryKeys;
     private List<string> cropHistoryValues;
@@ -18,6 +19,8 @@ public class CropHistoryMapComponent : MapComponent
     private Dictionary<Zone_Growing, string> extraCrops = new Dictionary<Zone_Growing, string>();
     private List<Zone_Growing> extraCropsKeys;
     private List<string> extraCropsValues;
+
+    private List<Zone_Growing> zoneToBurn = new List<Zone_Growing>();
 
     public CropHistoryMapComponent(Map map) : base(map)
     {
@@ -34,6 +37,11 @@ public class CropHistoryMapComponent : MapComponent
         if (cropEmptyTimer == null)
         {
             cropEmptyTimer = new Dictionary<IntVec3, int>();
+        }
+
+        if (zoneToBurn == null)
+        {
+            zoneToBurn = new List<Zone_Growing>();
         }
     }
 
@@ -308,6 +316,39 @@ public class CropHistoryMapComponent : MapComponent
         cropEmptyTimer[intVec3] = GenTicks.TicksGame;
     }
 
+    public void SaveZoneToBurn(Zone_Growing zone)
+    {
+        if (zoneToBurn == null)
+        {
+            zoneToBurn = new List<Zone_Growing>();
+        }
+
+        zoneToBurn.Add(zone);
+    }
+
+    public List<Zone_Growing> GetZonesToBurn()
+    {
+        if (zoneToBurn == null)
+        {
+            zoneToBurn = new List<Zone_Growing>();
+        }
+
+        return zoneToBurn;
+    }
+
+    public void RemoveZoneToBurn(Zone_Growing zone)
+    {
+        if (zoneToBurn == null)
+        {
+            zoneToBurn = new List<Zone_Growing>();
+        }
+
+        if (zoneToBurn.Contains(zone))
+        {
+            zoneToBurn.Remove(zone);
+        }
+    }
+
     public void SaveNotEmptyTimestamp(IntVec3 intVec3)
     {
         if (cropEmptyTimer == null)
@@ -424,6 +465,7 @@ public class CropHistoryMapComponent : MapComponent
             ref extraCropsKeys, ref extraCropsValues);
         Scribe_Collections.Look(ref cropEmptyTimer, "cropEmptyTimer", LookMode.Value, LookMode.Value,
             ref cropEmptyTimerKeys, ref cropEmptyTimerValues);
+        Scribe_Collections.Look(ref zoneToBurn, "zoneToBurn", LookMode.Reference);
     }
 
     private ThingDef getLastCrop(IntVec3 intVec3)

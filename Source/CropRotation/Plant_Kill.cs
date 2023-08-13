@@ -31,5 +31,30 @@ public static class Plant_Kill
         var plantPlace = __instance.Position;
         CropRotation.LogMessage($"Saving burned crop at {__instance.Position} with percent {growthPercent}");
         cropHistoryComponent.SaveStringToHistory(plantPlace, $"[Fire]{growthPercent}");
+
+        if (plantPlace.GetZone(__instance.Map) is not Zone_Growing zone)
+        {
+            return;
+        }
+
+        if (!cropHistoryComponent.GetZonesToBurn().Contains(zone))
+        {
+            return;
+        }
+
+        foreach (var zoneCell in zone.Cells)
+        {
+            if (zoneCell == plantPlace)
+            {
+                continue;
+            }
+
+            if (zoneCell.ContainsStaticFire(__instance.Map))
+            {
+                return;
+            }
+        }
+
+        cropHistoryComponent.RemoveZoneToBurn(zone);
     }
 }

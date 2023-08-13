@@ -40,4 +40,6 @@ Essayez de changer régulièrement les cultures semées pour augmenter le rendem
   <CropRotation.RequireResearchTT>Pour procéder à la rotation automatique des cultures dans les champs, vous devez d'abord mener à bien des projets de recherche.</CropRotation.RequireResearchTT>
   <CropRotation.RequireResearchOngoingTT>REMARQUE : Pour modifier cette option, il ne faut pas qu'un jeu soit chargé.
 Pour faire pivoter automatiquement les cultures des champs, vous devez d'abord mener à bien des projets de recherche.</CropRotation.RequireResearchOngoingTT>
+  <CropRotation.BurnCrops>Brûler les cultures</CropRotation.BurnCrops>
+  <CropRotation.BurnCropsTT>Brûle toutes les cultures dans le champ pour améliorer le rendement</CropRotation.BurnCropsTT>
 </LanguageData>

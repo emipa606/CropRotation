@@ -11,10 +11,10 @@
 After harvesting a crop, pawns will sow the next available crop selected.
 The automatic rotation is only available on zones where the base crop is a harvestable plant and not a tree.</content>
   </TabulaRasa.UpdateDef>
-	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
-		<defName>CropRotation_1_4_2</defName>
-		<date>2023/8/13</date>
-		<content>This update adds multiple changes that can all be changed in the mod-options.
+  <TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+    <defName>CropRotation_1_4_2</defName>
+    <date>2023/8/13</date>
+    <content>This update adds multiple changes that can all be changed in the mod-options.
 There is now two research-projects for the auto-rotation. Basic for rotation between two crops, advanced between any amount of crops.
 A new option for requiring three crop-rotation for yield to increase while two only stops it from lowering.
 A new option for rotation to just lowering the yield at half the rate of not rotating.
@@ -23,5 +23,12 @@ A new option to make yield improve over time if no crop is sown, up to the norma
 Also added information to the growing-zone info to show the average yield-modifier for the zone.
 
 Thank you for all suggestions, makes this mod fun to expand upon!</content>
+  </TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+		<defName>CropRotation_1_4_3</defName>
+		<date>2023/8/14</date>
+		<content>There is now a controlled way to start crop-fires to increase yield.
+The growing zone will now have a Burn Crops gizmo that will cause a pawn to come over and set the field on fire.
+They will then stay and watch the fire to not let it spread outside of the field.</content>
 	</TabulaRasa.UpdateDef>
 </Defs>

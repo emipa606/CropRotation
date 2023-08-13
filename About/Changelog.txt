@@ -1,5 +1,9 @@
 # Changelog for CropRotation
 
+1.4.3 - Added a controlled way to start crop-fires.
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.4.2 - Added option to require three crops to improve yield while two crops only stops it from lowering
 Added research projects, basic allows rotating between two crops, advanced between any number. Can be turned off in the settings.
 Added yield improvement by fire, burned crops increased yield of the next harvest

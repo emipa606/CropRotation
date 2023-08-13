@@ -11,6 +11,13 @@ This mod lowers the yield of crops when the same crop is planted in the same spo
 The yield gets lower and lower each time, but rotating the crop instead increases the yield.
 This only affects plants in growing-zones that are destroyed upon harvesting. 
 
+You can also select multiple crops for growing-zones and pawns will change crop after each harvest.
+The change happens per cell, so unless you are using a mod like https://steamcommunity.com/sharedfiles/filedetails/?id=2807616911]Growth Sync your fields may soon look a bit random as plants may grow at different speeds.
+Pawns will also look at skill requirements when switching crop and skip any crop that no colonist can plant.
+
+The gizmo for extra crops are only visible if the base-crop selected is a harvestable crop that is not a tree and where the plant is destroyed when harvesting. The selectable extra plants are also limited by this.
+So zones for trees, flowers and crops that do not need replanting after harvest will not have any extra plants selectable.
+
 Mod-options
 
 
@@ -18,15 +25,13 @@ Mod-options
 - Maximum yield-multiplier
 - Minimum yield-multiplier
 - The amount of crop-iterations to take into account to calculate the yield
+- If automatic rotation of crops should require research to be done first
+- If burned crops should increase yield and by how much
+- If empty cells should increase yield back to 100% over time and how fast
+- If three or more different crops are required for yield improvement or just two
+- If rotating crops should just lower the yield by a smaller amount to force the use of burning or waiting
 
 
-
-You can also select multiple crops for growing-zones and pawns will change crop after each harvest.
-The change happens per cell, so unless you are using a mod like https://steamcommunity.com/sharedfiles/filedetails/?id=2807616911]Growth Sync your fields may soon look a bit random as plants may grow at different speeds.
-Pawns will also look at skill requirements when switching crop and skip any crop that no colonist can plant.
-
-The gizmo for extra crops are only visible if the base-crop selected is a harvestable crop that is not a tree and where the plant is destroyed when harvesting. The selectable extra plants are also limited by this.
-So zones for trees, flowers and crops that do not need replanting after harvest will not have any extra plants selectable.
 
 ![Image](https://i.imgur.com/Ds0rBAD.png)
 
@@ -47,4 +52,4 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/3018130534]Last updated 2023-08-13
+https://steamcommunity.com/sharedfiles/filedetails/changelog/3018130534]Last updated 2023-08-14

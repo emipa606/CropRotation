@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>BurnDownCrops</defName>
+    <driverClass>CropRotation.JobDriver_BurnDownCrops</driverClass>
+    <reportString>burning crops.</reportString>
+  </JobDef>
+  <WorkGiverDef>
+    <defName>BurnDownCrops</defName>
+    <label>burn crops</label>
+    <giverClass>CropRotation.WorkGiver_BurnDownCrops</giverClass>
+    <workType>Growing</workType>
+    <priorityInType>40</priorityInType>
+    <verb>burn</verb>
+    <gerund>burning</gerund>
+    <scanThings>false</scanThings>
+    <scanCells>true</scanCells>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

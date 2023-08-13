@@ -40,4 +40,6 @@
   <CropRotation.RequireResearchTT>要实现田地作物的自动轮作，您需要先完成研究项目</CropRotation.RequireResearchTT>
   <CropRotation.RequireResearchOngoingTT>注意：要更改此选项，您不能已加载游戏
 要自动旋转田地里的作物，您需要先完成研究项目</CropRotation.RequireResearchOngoingTT>
+  <CropRotation.BurnCrops>烧毁农作物</CropRotation.BurnCrops>
+  <CropRotation.BurnCropsTT>烧毁田间所有作物，提高产量</CropRotation.BurnCropsTT>
 </LanguageData>

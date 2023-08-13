@@ -40,4 +40,6 @@ Versuchen Sie, Ihre Aussaaten regelmäßig zu wechseln, um den Ertrag zu steiger
   <CropRotation.RequireResearchTT>Um die Kulturen auf den Feldern automatisch zu wechseln, müssen Sie zunächst Forschungsprojekte abschließen</CropRotation.RequireResearchTT>
   <CropRotation.RequireResearchOngoingTT>HINWEIS: Um diese Option zu ändern, darf kein Spiel geladen sein.
 Um die Kulturen auf den Feldern automatisch zu wechseln, müssen Sie zuerst Forschungsprojekte abschließen</CropRotation.RequireResearchOngoingTT>
+  <CropRotation.BurnCrops>Ernten verbrennen</CropRotation.BurnCrops>
+  <CropRotation.BurnCropsTT>Brennt alle Pflanzen auf dem Feld ab, um den Ertrag zu verbessern</CropRotation.BurnCropsTT>
 </LanguageData>

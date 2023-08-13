@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace CropRotation;
@@ -28,9 +30,33 @@ public static class Zone_Growing_GetGizmos
                 continue;
             }
 
+            var burnAction = new Command_Action
+            {
+                icon = ContentFinder<Texture2D>.Get("Commands/BurnCrops"),
+                defaultLabel = "CropRotation.BurnCrops".Translate(),
+                defaultDesc = "CropRotation.BurnCropsTT".Translate(),
+                action = delegate { component.SaveZoneToBurn(__instance); }
+            };
+
+            if (component.GetZonesToBurn().Contains(__instance))
+            {
+                burnAction = new Command_Action
+                {
+                    icon = ContentFinder<Texture2D>.Get("Commands/DontBurnCrops"),
+                    defaultLabel = "CropRotation.BurnCrops".Translate(),
+                    defaultDesc = "CropRotation.BurnCropsTT".Translate(),
+                    action = delegate { component.RemoveZoneToBurn(__instance); }
+                };
+            }
+
             if (!CropRotation.IsValidCrop(__instance.plantDefToGrow))
             {
                 component.RemoveZone(__instance);
+                if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+                {
+                    yield return burnAction;
+                }
+
                 continue;
             }
 
@@ -55,6 +81,11 @@ public static class Zone_Growing_GetGizmos
 
             if (!showAddNew)
             {
+                if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+                {
+                    yield return burnAction;
+                }
+
                 continue;
             }
 
@@ -62,6 +93,11 @@ public static class Zone_Growing_GetGizmos
             {
                 settable = __instance
             };
+
+            if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+            {
+                yield return burnAction;
+            }
         }
     }
 }

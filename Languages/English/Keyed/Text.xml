@@ -35,6 +35,8 @@ Try to change your sown crops regularly to increase yield.</CropRotation.Modifie
   <CropRotation.TimeIncreasesPerQuandrumTT>Over one Quandrum this is how much yield is regained, up to a maximum of 100% yield.</CropRotation.TimeIncreasesPerQuandrumTT>
   <CropRotation.VerboseLogging>Verbose logging</CropRotation.VerboseLogging>
   <CropRotation.VerboseLoggingTT>For debugging and extra info</CropRotation.VerboseLoggingTT>
+  <CropRotation.BurnCrops>Burn crops</CropRotation.BurnCrops>
+  <CropRotation.BurnCropsTT>Burns down all crops on the field to improve yield</CropRotation.BurnCropsTT>
   <CropRotation.RequireResearch>Auto-rotation requires research</CropRotation.RequireResearch>
   <CropRotation.RequireResearchTT>To automatically rotate the crops of the fields you will need to complete research-projects first</CropRotation.RequireResearchTT>
   <CropRotation.RequireResearchOngoingTT>NOTE: To change this option you cannot have a game loaded
