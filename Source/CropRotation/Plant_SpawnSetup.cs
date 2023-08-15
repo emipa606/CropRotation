@@ -9,6 +9,11 @@ public static class Plant_SpawnSetup
 {
     public static void Postfix(Plant __instance, Map map, bool respawningAfterLoad)
     {
+        if (__instance == null)
+        {
+            return;
+        }
+
         if (!__instance.Spawned)
         {
             return;
@@ -19,7 +24,7 @@ public static class Plant_SpawnSetup
             return;
         }
 
-        var cropHistoryComponent = map.GetComponent<CropHistoryMapComponent>();
+        var cropHistoryComponent = map?.GetComponent<CropHistoryMapComponent>();
         if (cropHistoryComponent == null)
         {
             CropRotation.LogMessage($"Failed to find the mapcomponent for {__instance.Map}", warning: true);

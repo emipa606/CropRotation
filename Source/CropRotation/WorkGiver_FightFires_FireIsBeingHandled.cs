@@ -14,12 +14,12 @@ public static class WorkGiver_FightFires_FireIsBeingHandled
             return;
         }
 
-        if (f.Position.GetZone(f.Map) is not Zone_Growing zone)
+        if (f?.Position.GetZone(f.Map) is not Zone_Growing zone)
         {
             return;
         }
 
-        var mapComponent = f.Map.GetComponent<CropHistoryMapComponent>();
+        var mapComponent = f.Map?.GetComponent<CropHistoryMapComponent>();
 
         if (mapComponent == null)
         {

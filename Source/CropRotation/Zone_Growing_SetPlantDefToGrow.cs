@@ -9,6 +9,6 @@ public static class Zone_Growing_SetPlantDefToGrow
 {
     public static void Postfix(ThingDef plantDef, Zone_Growing __instance)
     {
-        __instance.Map.GetComponent<CropHistoryMapComponent>()?.RemoveExtraPlant(__instance, plantDef);
+        __instance?.Map?.GetComponent<CropHistoryMapComponent>()?.RemoveExtraPlant(__instance, plantDef);
     }
 }

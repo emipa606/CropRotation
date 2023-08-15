@@ -10,6 +10,11 @@ public static class Plant_Kill
 {
     public static void Prefix(Plant __instance, DamageInfo? dinfo)
     {
+        if (__instance == null)
+        {
+            return;
+        }
+
         if (!__instance.Spawned || dinfo == null)
         {
             return;

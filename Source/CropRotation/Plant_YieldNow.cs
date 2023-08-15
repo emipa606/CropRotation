@@ -9,7 +9,7 @@ public static class Plant_YieldNow
 {
     public static void Postfix(Plant __instance, ref int __result)
     {
-        var mapComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
+        var mapComponent = __instance?.Map?.GetComponent<CropHistoryMapComponent>();
 
         if (mapComponent == null)
         {

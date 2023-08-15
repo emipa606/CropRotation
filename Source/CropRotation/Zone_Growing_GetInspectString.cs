@@ -17,10 +17,10 @@ public static class Zone_Growing_GetInspectString
             return;
         }
 
-        var cropHistoryComponent = __instance.Map?.GetComponent<CropHistoryMapComponent>();
+        var cropHistoryComponent = __instance?.Map?.GetComponent<CropHistoryMapComponent>();
         if (cropHistoryComponent == null)
         {
-            CropRotation.LogMessage($"Failed to find the mapcomponent for {__instance.Map}", warning: true);
+            CropRotation.LogMessage("Failed to find the mapcomponent", warning: true);
             return;
         }
 

@@ -31,7 +31,7 @@ public class Command_SetExtraPlantToGrow : Command
 
         zone = selectedZone;
 
-        component = Find.CurrentMap.GetComponent<CropHistoryMapComponent>();
+        component = Find.CurrentMap?.GetComponent<CropHistoryMapComponent>();
         if (component == null)
         {
             return;

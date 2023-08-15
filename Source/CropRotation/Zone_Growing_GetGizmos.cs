@@ -24,7 +24,7 @@ public static class Zone_Growing_GetGizmos
 
             done = true;
 
-            var component = __instance.Map.GetComponent<CropHistoryMapComponent>();
+            var component = __instance?.Map?.GetComponent<CropHistoryMapComponent>();
             if (component == null)
             {
                 continue;

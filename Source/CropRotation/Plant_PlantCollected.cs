@@ -9,6 +9,11 @@ public static class Plant_PlantCollected
 {
     public static void Prefix(Plant __instance)
     {
+        if (__instance == null)
+        {
+            return;
+        }
+
         if (!CropRotation.IsValidCrop(__instance.def))
         {
             return;
@@ -21,7 +26,7 @@ public static class Plant_PlantCollected
             return;
         }
 
-        var cropHistoryComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
+        var cropHistoryComponent = __instance.Map?.GetComponent<CropHistoryMapComponent>();
         if (cropHistoryComponent == null)
         {
             CropRotation.LogMessage($"Failed to find the mapcomponent for {__instance.Map}", warning: true);

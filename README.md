@@ -18,6 +18,8 @@ Pawns will also look at skill requirements when switching crop and skip any crop
 The gizmo for extra crops are only visible if the base-crop selected is a harvestable crop that is not a tree and where the plant is destroyed when harvesting. The selectable extra plants are also limited by this.
 So zones for trees, flowers and crops that do not need replanting after harvest will not have any extra plants selectable.
 
+Growing zones will also have an extra action for burning the crops to increase the yield. This is locked behind the basic crop-rotation research. A pawn will then come over to the field, set it on fire and stand watch to stop the fire from spreading. 
+
 Mod-options
 
 
@@ -52,4 +54,4 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/3018130534]Last updated 2023-08-14
+https://steamcommunity.com/sharedfiles/filedetails/changelog/3018130534]Last updated 2023-08-15

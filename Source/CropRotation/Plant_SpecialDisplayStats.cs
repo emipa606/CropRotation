@@ -15,7 +15,7 @@ public static class Plant_SpecialDisplayStats
             yield return statDrawEntry;
         }
 
-        var mapComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
+        var mapComponent = __instance?.Map?.GetComponent<CropHistoryMapComponent>();
 
         if (mapComponent == null)
         {

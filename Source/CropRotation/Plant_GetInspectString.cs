@@ -15,12 +15,17 @@ public static class Plant_GetInspectString
             return;
         }
 
+        if (__instance == null)
+        {
+            return;
+        }
+
         if (!CropRotation.IsValidCrop(__instance.def))
         {
             return;
         }
 
-        var mapComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
+        var mapComponent = __instance.Map?.GetComponent<CropHistoryMapComponent>();
 
         if (mapComponent == null)
         {

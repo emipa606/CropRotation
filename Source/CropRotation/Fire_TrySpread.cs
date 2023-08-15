@@ -9,12 +9,12 @@ public static class Fire_TrySpread
 {
     public static bool Prefix(Fire __instance)
     {
-        if (__instance.Position.GetZone(__instance.Map) is not Zone_Growing zone)
+        if (__instance?.Position.GetZone(__instance.Map) is not Zone_Growing zone)
         {
             return true;
         }
 
-        var mapComponent = __instance.Map.GetComponent<CropHistoryMapComponent>();
+        var mapComponent = __instance.Map?.GetComponent<CropHistoryMapComponent>();
 
         if (mapComponent == null)
         {

@@ -8,6 +8,11 @@ public static class Plant_DeSpawn
 {
     public static void Prefix(Plant __instance)
     {
+        if (__instance == null)
+        {
+            return;
+        }
+
         if (!__instance.Spawned)
         {
             return;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <TabulaRasa.UpdateDef Abstract="true" Name="CropRotation_UpdateInfoBase">
     <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3018130534</linkUrl>
@@ -24,11 +24,11 @@ Also added information to the growing-zone info to show the average yield-modifi
 
 Thank you for all suggestions, makes this mod fun to expand upon!</content>
   </TabulaRasa.UpdateDef>
-	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
-		<defName>CropRotation_1_4_3</defName>
-		<date>2023/8/14</date>
-		<content>There is now a controlled way to start crop-fires to increase yield.
+  <TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+    <defName>CropRotation_1_4_3</defName>
+    <date>2023/8/14</date>
+    <content>There is now a controlled way to start crop-fires to increase yield.
 The growing zone will now have a Burn Crops gizmo that will cause a pawn to come over and set the field on fire.
 They will then stay and watch the fire to not let it spread outside of the field.</content>
-	</TabulaRasa.UpdateDef>
+  </TabulaRasa.UpdateDef>
 </Defs>

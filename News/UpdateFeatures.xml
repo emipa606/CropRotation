@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <HugsLib.UpdateFeatureDef Abstract="true" Name="CropRotation_UpdateFeatureBase">
     <modNameReadable>CropRotation</modNameReadable>
@@ -24,11 +24,11 @@ Also added information to the growing-zone info to show the average yield-modifi
 
 Thank you for all suggestions, makes this mod fun to expand upon!</content>
   </HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="CropRotation_UpdateFeatureBase">
-		<defName>CropRotation_1_4_3</defName>
-		<assemblyVersion>1.4.3</assemblyVersion>
-		<content>There is now a controlled way to start crop-fires to increase yield.
+  <HugsLib.UpdateFeatureDef ParentName="CropRotation_UpdateFeatureBase">
+    <defName>CropRotation_1_4_3</defName>
+    <assemblyVersion>1.4.3</assemblyVersion>
+    <content>There is now a controlled way to start crop-fires to increase yield.
 The growing zone will now have a Burn Crops gizmo that will cause a pawn to come over and set the field on fire.
 They will then stay and watch the fire to not let it spread outside of the field.</content>
-	</HugsLib.UpdateFeatureDef>
+  </HugsLib.UpdateFeatureDef>
 </Defs>

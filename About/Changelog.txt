@@ -1,5 +1,8 @@
 # Changelog for CropRotation
 
+1.4.4 - Fix for minified trees not being able to be destroyed, probably fixed some other issues as well
+
+
 1.4.3 - Added a controlled way to start crop-fires.
 Used DeepL to update translations for ChineseSimplified, French, German
 
