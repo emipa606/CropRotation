@@ -227,7 +227,7 @@ public class Command_SetExtraPlantToGrow : Command
         return !plantDef.plant.mustBeWildToSow || map.Biome.AllWildPlants.Contains(plantDef);
     }
 
-    private float GetPlantListPriority(ThingDef plantDef)
+    public float GetPlantListPriority(ThingDef plantDef)
     {
         if (plantDef.plant.IsTree)
         {

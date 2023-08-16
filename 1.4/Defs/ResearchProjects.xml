@@ -19,7 +19,8 @@ Allows rotating between two types of crops.</description>
     <label>advanced crop rotation</label>
     <description>Rotating between multiple crops to increase the yield of the land.
 
-Allows rotating between any amount of crops.</description>
+Allows rotating between any amount of crops.
+Also allows for seasonal rotation.</description>
     <baseCost>700</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>

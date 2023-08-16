@@ -42,4 +42,7 @@ Versuchen Sie, Ihre Aussaaten regelmäßig zu wechseln, um den Ertrag zu steiger
 Um die Kulturen auf den Feldern automatisch zu wechseln, müssen Sie zuerst Forschungsprojekte abschließen</CropRotation.RequireResearchOngoingTT>
   <CropRotation.BurnCrops>Ernten verbrennen</CropRotation.BurnCrops>
   <CropRotation.BurnCropsTT>Brennt alle Pflanzen auf dem Feld ab, um den Ertrag zu verbessern</CropRotation.BurnCropsTT>
+  <CropRotation.ExtraPlantForSeasonDesc>Die ausgewählte Pflanze wird nur während {0} gepflanzt.</CropRotation.ExtraPlantForSeasonDesc>
+  <CropRotation.SwitchExtraCropType>Dynamisch/Saisonal</CropRotation.SwitchExtraCropType>
+  <CropRotation.SwitchExtraCropTypeTT>Wechselt zwischen dynamischen Zusatzkulturen und saisonalen Zusatzkulturen</CropRotation.SwitchExtraCropTypeTT>
 </LanguageData>

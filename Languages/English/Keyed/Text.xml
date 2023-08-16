@@ -21,6 +21,7 @@ Try to change your sown crops regularly to increase yield.</CropRotation.Modifie
   <CropRotation.ModifiedYieldHighTT>Due to good crop rotation the yield when harvesting will be increased.</CropRotation.ModifiedYieldHighTT>
   <CropRotation.ExtraPlantDesc>Determine which extra plant should be sown here. Pawns will alternate between all defined crops.</CropRotation.ExtraPlantDesc>
   <CropRotation.NoExtraPlantSelected>Extra plants</CropRotation.NoExtraPlantSelected>
+  <CropRotation.ExtraPlantForSeasonDesc>Selected plant will only be planted during {0}</CropRotation.ExtraPlantForSeasonDesc>
   <CropRotation.RequireThree>Require three different crops for improvement</CropRotation.RequireThree>
   <CropRotation.RequireThreeTT>If checked only zones that rotates between three or more crops will see an increase in yield. Rotation of two crops will just not make the yield lower.</CropRotation.RequireThreeTT>
   <CropRotation.AlwaysLower>Rotating crops still lowers yield</CropRotation.AlwaysLower>
@@ -37,6 +38,8 @@ Try to change your sown crops regularly to increase yield.</CropRotation.Modifie
   <CropRotation.VerboseLoggingTT>For debugging and extra info</CropRotation.VerboseLoggingTT>
   <CropRotation.BurnCrops>Burn crops</CropRotation.BurnCrops>
   <CropRotation.BurnCropsTT>Burns down all crops on the field to improve yield</CropRotation.BurnCropsTT>
+  <CropRotation.SwitchExtraCropType>Dynamic/ Seasonal</CropRotation.SwitchExtraCropType>
+  <CropRotation.SwitchExtraCropTypeTT>Switches between dynamic extra crops and seasonal extra crops</CropRotation.SwitchExtraCropTypeTT>
   <CropRotation.RequireResearch>Auto-rotation requires research</CropRotation.RequireResearch>
   <CropRotation.RequireResearchTT>To automatically rotate the crops of the fields you will need to complete research-projects first</CropRotation.RequireResearchTT>
   <CropRotation.RequireResearchOngoingTT>NOTE: To change this option you cannot have a game loaded

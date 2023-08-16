@@ -20,6 +20,10 @@ public class CropHistoryMapComponent : MapComponent
     private List<Zone_Growing> extraCropsKeys;
     private List<string> extraCropsValues;
 
+    private Dictionary<Zone_Growing, string> seasonCrops = new Dictionary<Zone_Growing, string>();
+    private List<Zone_Growing> seasonCropsKeys;
+    private List<string> seasonCropsValues;
+
     private List<Zone_Growing> zoneToBurn = new List<Zone_Growing>();
 
     public CropHistoryMapComponent(Map map) : base(map)
@@ -110,7 +114,7 @@ public class CropHistoryMapComponent : MapComponent
         extraCrops[zone] = string.Join(",", crops);
     }
 
-    public void RemoveZone(Zone_Growing zone)
+    public void RemoveExtraCropZone(Zone_Growing zone)
     {
         if (extraCrops.ContainsKey(zone))
         {
@@ -326,6 +330,87 @@ public class CropHistoryMapComponent : MapComponent
         zoneToBurn.Add(zone);
     }
 
+    public void RemoveSeasonalZone(Zone_Growing zone)
+    {
+        if (seasonCrops == null)
+        {
+            seasonCrops = new Dictionary<Zone_Growing, string>();
+        }
+
+        if (!seasonCrops.ContainsKey(zone))
+        {
+            return;
+        }
+
+        seasonCrops.Remove(zone);
+    }
+
+    public List<ThingDef> GetSeasonalCrops(Zone_Growing zone)
+    {
+        var returnValue = new List<ThingDef>();
+        var currentSeasonalCrops = getSeasonCrops(zone);
+
+        if (!currentSeasonalCrops.Any())
+        {
+            return returnValue;
+        }
+
+        foreach (var plantDef in currentSeasonalCrops)
+        {
+            var foundPlant = DefDatabase<ThingDef>.GetNamedSilentFail(plantDef);
+            if (foundPlant == null)
+            {
+                continue;
+            }
+
+            returnValue.Add(foundPlant);
+        }
+
+        return returnValue.Count != 3 ? new List<ThingDef>() : returnValue;
+    }
+
+    public void SaveSeasonalZone(Zone_Growing zone)
+    {
+        if (seasonCrops == null)
+        {
+            seasonCrops = new Dictionary<Zone_Growing, string>();
+        }
+
+        if (seasonCrops.ContainsKey(zone))
+        {
+            return;
+        }
+
+        RemoveExtraCropZone(zone);
+        var cropString = zone.PlantDefToGrow.defName;
+        seasonCrops[zone] = $"{cropString},{cropString},{cropString}";
+    }
+
+    public void SetPlantForSeason(Zone_Growing zone, Season season, ThingDef cropDef)
+    {
+        var currentSeasonCrops = getSeasonCrops(zone);
+        if (currentSeasonCrops.Count != 3)
+        {
+            CropRotation.LogMessage($"Tried to get season crops for {zone} but got none.", warning: true);
+            return;
+        }
+
+        switch (season)
+        {
+            case Season.Summer:
+                currentSeasonCrops[0] = cropDef.defName;
+                break;
+            case Season.Fall:
+                currentSeasonCrops[1] = cropDef.defName;
+                break;
+            case Season.Winter:
+                currentSeasonCrops[2] = cropDef.defName;
+                break;
+        }
+
+        seasonCrops[zone] = $"{currentSeasonCrops[0]},{currentSeasonCrops[1]},{currentSeasonCrops[2]}";
+    }
+
     public List<Zone_Growing> GetZonesToBurn()
     {
         if (zoneToBurn == null)
@@ -373,6 +458,28 @@ public class CropHistoryMapComponent : MapComponent
 
     public ThingDef GetNextCrop(Zone_Growing zone, IntVec3 intVec3, ThingDef baseCrop)
     {
+        var seasonic = getSeasonCrops(zone);
+        if (seasonic.Count == 3)
+        {
+            var currentSownCrop = intVec3.GetPlant(zone.Map);
+            if (currentSownCrop != null && seasonic.Contains(currentSownCrop.def.defName))
+            {
+                return currentSownCrop.def;
+            }
+
+            switch (GenLocalDate.Season(map))
+            {
+                case Season.Summer:
+                    return ThingDef.Named(seasonic[0]);
+                case Season.Fall:
+                    return ThingDef.Named(seasonic[1]);
+                case Season.Winter:
+                    return ThingDef.Named(seasonic[2]);
+                default:
+                    return zone.PlantDefToGrow;
+            }
+        }
+
         var crops = getExtraCrops(zone);
         if (!crops.Any())
         {
@@ -450,10 +557,36 @@ public class CropHistoryMapComponent : MapComponent
         return baseCrop;
     }
 
+    public ThingDef GetPlantDefForSeason(Season season, Zone_Growing zone)
+    {
+        return GetPlantDefForSeason(season, getSeasonCrops(zone));
+    }
+
+    public ThingDef GetPlantDefForSeason(Season season, List<string> seasonalCrops)
+    {
+        if (!seasonalCrops.Any() || seasonalCrops.Count != 3)
+        {
+            return null;
+        }
+
+        switch (season)
+        {
+            case Season.Summer:
+                return ThingDef.Named(seasonalCrops[0]);
+            case Season.Fall:
+                return ThingDef.Named(seasonalCrops[1]);
+            case Season.Winter:
+                return ThingDef.Named(seasonalCrops[2]);
+            default:
+                return null;
+        }
+    }
+
     public override void MapGenerated()
     {
         cropHistory = new Dictionary<IntVec3, string>();
         extraCrops = new Dictionary<Zone_Growing, string>();
+        seasonCrops = new Dictionary<Zone_Growing, string>();
         cropEmptyTimer = new Dictionary<IntVec3, int>();
     }
 
@@ -461,6 +594,8 @@ public class CropHistoryMapComponent : MapComponent
     {
         Scribe_Collections.Look(ref cropHistory, "cropHistory", LookMode.Value, LookMode.Value,
             ref cropHistoryKeys, ref cropHistoryValues);
+        Scribe_Collections.Look(ref seasonCrops, "seasonCrops", LookMode.Reference, LookMode.Value,
+            ref seasonCropsKeys, ref seasonCropsValues);
         Scribe_Collections.Look(ref extraCrops, "extraCrops", LookMode.Reference, LookMode.Value,
             ref extraCropsKeys, ref extraCropsValues);
         Scribe_Collections.Look(ref cropEmptyTimer, "cropEmptyTimer", LookMode.Value, LookMode.Value,
@@ -507,6 +642,18 @@ public class CropHistoryMapComponent : MapComponent
             extraCrops = new Dictionary<Zone_Growing, string>();
         }
 
-        return extraCrops.TryGetValue(zone, out var extaPlants) ? extaPlants.Split(',').ToList() : new List<string>();
+        return extraCrops.TryGetValue(zone, out var extraPlants) ? extraPlants.Split(',').ToList() : new List<string>();
+    }
+
+    private List<string> getSeasonCrops(Zone_Growing zone)
+    {
+        if (seasonCrops == null)
+        {
+            seasonCrops = new Dictionary<Zone_Growing, string>();
+        }
+
+        return seasonCrops.TryGetValue(zone, out var seasonPlants)
+            ? seasonPlants.Split(',').ToList()
+            : new List<string>();
     }
 }

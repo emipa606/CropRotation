@@ -42,4 +42,7 @@ Essayez de changer régulièrement les cultures semées pour augmenter le rendem
 Pour faire pivoter automatiquement les cultures des champs, vous devez d'abord mener à bien des projets de recherche.</CropRotation.RequireResearchOngoingTT>
   <CropRotation.BurnCrops>Brûler les cultures</CropRotation.BurnCrops>
   <CropRotation.BurnCropsTT>Brûle toutes les cultures dans le champ pour améliorer le rendement</CropRotation.BurnCropsTT>
+  <CropRotation.ExtraPlantForSeasonDesc>La plante sélectionnée ne sera plantée que pendant {0}</CropRotation.ExtraPlantForSeasonDesc>
+  <CropRotation.SwitchExtraCropType>Dynamique/ saisonnier</CropRotation.SwitchExtraCropType>
+  <CropRotation.SwitchExtraCropTypeTT>Commutation entre les cultures supplémentaires dynamiques et les cultures supplémentaires saisonnières</CropRotation.SwitchExtraCropTypeTT>
 </LanguageData>

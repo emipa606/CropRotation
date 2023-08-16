@@ -42,4 +42,7 @@
 要自动旋转田地里的作物，您需要先完成研究项目</CropRotation.RequireResearchOngoingTT>
   <CropRotation.BurnCrops>烧毁农作物</CropRotation.BurnCrops>
   <CropRotation.BurnCropsTT>烧毁田间所有作物，提高产量</CropRotation.BurnCropsTT>
+  <CropRotation.ExtraPlantForSeasonDesc>选定的植物只能在 {0} 期间种植。</CropRotation.ExtraPlantForSeasonDesc>
+  <CropRotation.SwitchExtraCropType>动态/季节性</CropRotation.SwitchExtraCropType>
+  <CropRotation.SwitchExtraCropTypeTT>在动态额外作物和季节性额外作物之间切换</CropRotation.SwitchExtraCropTypeTT>
 </LanguageData>

@@ -35,6 +35,9 @@ public static class Plant_DeliberatelyCultivated
             return;
         }
 
-        __result = mapComponent.GetExtraCropsForZone(zone).Contains(__instance.def);
+        CropRotation.LogMessage($"Checking if {__instance} is valid plant for {zone}");
+
+        __result = mapComponent.GetExtraCropsForZone(zone).Contains(__instance.def) ||
+                   mapComponent.GetSeasonalCrops(zone).Contains(__instance.def);
     }
 }
