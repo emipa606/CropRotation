@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -26,9 +27,15 @@ public class WorkGiver_BurnDownCrops : WorkGiver_Scanner
 
         foreach (var zoneGrowing in zoneToBurn)
         {
-            if (pawn.Map.reservationManager.CanReserve(pawn, zoneGrowing.Position))
+            var cellsInOrder = zoneGrowing.Cells.OrderBy(vec3 => vec3.x + vec3.z);
+            if (pawn.Map.reservationManager.CanReserve(pawn, cellsInOrder.First()))
             {
-                yield return zoneGrowing.Position;
+                yield return cellsInOrder.First();
+            }
+
+            if (pawn.Map.reservationManager.CanReserve(pawn, cellsInOrder.Last()))
+            {
+                yield return cellsInOrder.Last();
             }
         }
     }

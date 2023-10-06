@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <TabulaRasa.UpdateDef Abstract="true" Name="CropRotation_UpdateInfoBase">
     <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3018130534</linkUrl>
@@ -31,12 +31,12 @@ Thank you for all suggestions, makes this mod fun to expand upon!</content>
 The growing zone will now have a Burn Crops gizmo that will cause a pawn to come over and set the field on fire.
 They will then stay and watch the fire to not let it spread outside of the field.</content>
   </TabulaRasa.UpdateDef>
-	<TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
-		<defName>CropRotation_1_4_5</defName>
-		<date>2023/8/16</date>
-		<content>It is now possible to switch a zone to seasonal sowing.
+  <TabulaRasa.UpdateDef ParentName="CropRotation_UpdateInfoBase">
+    <defName>CropRotation_1_4_5</defName>
+    <date>2023/8/16</date>
+    <content>It is now possible to switch a zone to seasonal sowing.
 You can select a different crop for each season.
 The map can of course not have permanent summer/winter for this option to be available.
 It is also locked behind the same research as the multi-rotation of crops.</content>
-	</TabulaRasa.UpdateDef>
+  </TabulaRasa.UpdateDef>
 </Defs>
