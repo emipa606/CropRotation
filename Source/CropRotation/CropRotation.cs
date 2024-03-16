@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -77,8 +76,7 @@ public static class CropRotation
                         "The idea of rotating crops to keep the yield of the land from lowering.\r\n\r\nAllows rotating between two types of crops.",
                     baseCost = 300,
                     techLevel = TechLevel.Neolithic,
-                    tags = new List<ResearchProjectTagDef>
-                        { DefDatabase<ResearchProjectTagDef>.GetNamedSilentFail("TribalStart") },
+                    tags = [DefDatabase<ResearchProjectTagDef>.GetNamedSilentFail("TribalStart")],
                     researchViewX = 0f,
                     researchViewY = 5.4f
                 };
@@ -102,12 +100,10 @@ public static class CropRotation
                     "Rotating between multiple crops to increase the yield of the land.\r\n\r\nAllows rotating between any amount of crops.",
                 baseCost = 700,
                 techLevel = TechLevel.Industrial,
-                tags = new List<ResearchProjectTagDef> { ResearchProjectTagDefOf.ClassicStart },
+                tags = [ResearchProjectTagDefOf.ClassicStart],
                 researchViewX = 4f,
-                x = 4f,
                 researchViewY = 5.4f,
-                y = 5.4f,
-                prerequisites = new List<ResearchProjectDef> { ResearchProjectDef.Named("BasicCropRotation") }
+                prerequisites = [ResearchProjectDef.Named("BasicCropRotation")]
             };
             DefGenerator.AddImpliedDef(advancedResearch);
             advancedResearch.ResolveReferences();

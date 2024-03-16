@@ -4,7 +4,7 @@ using Verse;
 
 namespace CropRotation;
 
-[HarmonyPatch(typeof(Fire), nameof(Fire.TrySpread))]
+[HarmonyPatch(typeof(Fire), "TrySpread")]
 public static class Fire_TrySpread
 {
     public static bool Prefix(Fire __instance)

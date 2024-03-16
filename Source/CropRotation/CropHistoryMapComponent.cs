@@ -24,7 +24,7 @@ public class CropHistoryMapComponent : MapComponent
     private List<Zone_Growing> seasonCropsKeys;
     private List<string> seasonCropsValues;
 
-    private List<Zone_Growing> zoneToBurn = new List<Zone_Growing>();
+    private List<Zone_Growing> zoneToBurn = [];
 
     public CropHistoryMapComponent(Map map) : base(map)
     {
@@ -45,7 +45,7 @@ public class CropHistoryMapComponent : MapComponent
 
         if (zoneToBurn == null)
         {
-            zoneToBurn = new List<Zone_Growing>();
+            zoneToBurn = [];
         }
     }
 
@@ -324,7 +324,7 @@ public class CropHistoryMapComponent : MapComponent
     {
         if (zoneToBurn == null)
         {
-            zoneToBurn = new List<Zone_Growing>();
+            zoneToBurn = [];
         }
 
         zoneToBurn.Add(zone);
@@ -366,7 +366,7 @@ public class CropHistoryMapComponent : MapComponent
             returnValue.Add(foundPlant);
         }
 
-        return returnValue.Count != 3 ? new List<ThingDef>() : returnValue;
+        return returnValue.Count != 3 ? [] : returnValue;
     }
 
     public void SaveSeasonalZone(Zone_Growing zone)
@@ -415,7 +415,7 @@ public class CropHistoryMapComponent : MapComponent
     {
         if (zoneToBurn == null)
         {
-            zoneToBurn = new List<Zone_Growing>();
+            zoneToBurn = [];
         }
 
         return zoneToBurn;
@@ -425,7 +425,7 @@ public class CropHistoryMapComponent : MapComponent
     {
         if (zoneToBurn == null)
         {
-            zoneToBurn = new List<Zone_Growing>();
+            zoneToBurn = [];
         }
 
         if (zoneToBurn.Contains(zone))
@@ -441,12 +441,12 @@ public class CropHistoryMapComponent : MapComponent
             cropEmptyTimer = new Dictionary<IntVec3, int>();
         }
 
-        if (!cropEmptyTimer.ContainsKey(intVec3))
+        if (!cropEmptyTimer.TryGetValue(intVec3, out var value))
         {
             return;
         }
 
-        var emptyTime = GenTicks.TicksGame - cropEmptyTimer[intVec3];
+        var emptyTime = GenTicks.TicksGame - value;
         cropEmptyTimer.Remove(intVec3);
         if (emptyTime < GenDate.TicksPerDay)
         {
@@ -632,7 +632,7 @@ public class CropHistoryMapComponent : MapComponent
             cropHistory = new Dictionary<IntVec3, string>();
         }
 
-        return cropHistory.TryGetValue(intVec3, out var history) ? history.Split(',').ToList() : new List<string>();
+        return cropHistory.TryGetValue(intVec3, out var history) ? history.Split(',').ToList() : [];
     }
 
     private List<string> getExtraCrops(Zone_Growing zone)
@@ -642,7 +642,7 @@ public class CropHistoryMapComponent : MapComponent
             extraCrops = new Dictionary<Zone_Growing, string>();
         }
 
-        return extraCrops.TryGetValue(zone, out var extraPlants) ? extraPlants.Split(',').ToList() : new List<string>();
+        return extraCrops.TryGetValue(zone, out var extraPlants) ? extraPlants.Split(',').ToList() : [];
     }
 
     private List<string> getSeasonCrops(Zone_Growing zone)
@@ -654,6 +654,6 @@ public class CropHistoryMapComponent : MapComponent
 
         return seasonCrops.TryGetValue(zone, out var seasonPlants)
             ? seasonPlants.Split(',').ToList()
-            : new List<string>();
+            : [];
     }
 }

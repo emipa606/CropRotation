@@ -4,7 +4,7 @@ using Verse;
 
 namespace CropRotation;
 
-[HarmonyPatch(typeof(WorkGiver_FightFires), nameof(WorkGiver_FightFires.FireIsBeingHandled))]
+[HarmonyPatch("WorkGiver_FightFires", "FireIsBeingHandled")]
 public static class WorkGiver_FightFires_FireIsBeingHandled
 {
     public static void Postfix(Fire f, ref bool __result)

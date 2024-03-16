@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Text;
 using HarmonyLib;
 using RimWorld;
@@ -30,7 +29,7 @@ public static class Zone_Growing_GetInspectString
             yieldModifier += cropHistoryComponent.GetYieldModifier(intVec3, __instance.Map);
         }
 
-        yieldModifier /= __instance.Cells.Count();
+        yieldModifier /= __instance.Cells.Count;
 
         var modifiedText = new StringBuilder(__result);
         modifiedText.AppendLine();

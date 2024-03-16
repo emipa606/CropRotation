@@ -8,7 +8,7 @@ namespace CropRotation;
 [StaticConstructorOnStartup]
 public class Command_SetExtraSesonalPlantToGrow : Command_SetExtraPlantToGrow
 {
-    private static readonly List<ThingDef> tmpAvailablePlants = new List<ThingDef>();
+    private static readonly List<ThingDef> tmpAvailablePlants = [];
 
     private static readonly Texture2D NoPlantSelected = ContentFinder<Texture2D>.Get("Commands/ExtraPlantToGrow");
 
@@ -50,7 +50,7 @@ public class Command_SetExtraSesonalPlantToGrow : Command_SetExtraPlantToGrow
 
         if (settables == null)
         {
-            settables = new List<IPlantToGrowSettable>();
+            settables = [];
         }
 
         if (!settables.Contains(settable))
@@ -112,7 +112,7 @@ public class Command_SetExtraSesonalPlantToGrow : Command_SetExtraPlantToGrow
     {
         if (settables == null)
         {
-            settables = new List<IPlantToGrowSettable>();
+            settables = [];
         }
 
         settables.Add(((Command_SetExtraSesonalPlantToGrow)other).settable);

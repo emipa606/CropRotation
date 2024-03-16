@@ -21,6 +21,7 @@ public static class WorkGiver_GrowerSow_JobOnCell
             return;
         }
 
-        WorkGiver_Grower.wantedPlantDef = mapComponent.GetNextCrop(zone, c, zone.plantDefToGrow);
+        AccessTools.Field(typeof(WorkGiver_Grower), "wantedPlantDef")
+            .SetValue(null, mapComponent.GetNextCrop(zone, c, zone.PlantDefToGrow));
     }
 }

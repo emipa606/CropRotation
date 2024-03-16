@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>BasicCropRotation</defName>
+    <label>basic crop rotation</label>
+    <description>The idea of rotating crops to keep the yield of the land from lowering.
+
+Allows rotating between two types of crops.</description>
+    <baseCost>300</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <tags>
+      <li>TribalStart</li>
+    </tags>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>5.40</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>AdvancedCropRotation</defName>
+    <label>advanced crop rotation</label>
+    <description>Rotating between multiple crops to increase the yield of the land.
+
+Allows rotating between any amount of crops.
+Also allows for seasonal rotation.</description>
+    <baseCost>700</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>BasicCropRotation</li>
+    </prerequisites>
+    <tags>
+      <li>ClassicStart</li>
+    </tags>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>5.40</researchViewY>
+  </ResearchProjectDef>
+</Defs>

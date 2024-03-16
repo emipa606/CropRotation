@@ -57,7 +57,7 @@ internal class CropRotationMod : Mod
         var sliderRect = listing_Standard.GetRect(sliderHeight);
         sliderRect.width -= sliderHeight;
         sliderRect.x += sliderHeight / 2;
-        Settings.ChangeValue = Widgets.HorizontalSlider_NewTemp(sliderRect, Settings.ChangeValue,
+        Settings.ChangeValue = Widgets.HorizontalSlider(sliderRect, Settings.ChangeValue,
             0.01f, 0.25f, false, Settings.ChangeValue.ToStringPercent());
         TooltipHandler.TipRegion(sliderRect, "CropRotation.ChangeValueTT".Translate());
         listing_Standard.Gap();
@@ -67,7 +67,7 @@ internal class CropRotationMod : Mod
         sliderRect = listing_Standard.GetRect(sliderHeight);
         sliderRect.width -= sliderHeight;
         sliderRect.x += sliderHeight / 2;
-        Settings.HighLimit = Widgets.HorizontalSlider_NewTemp(sliderRect, Settings.HighLimit, 1, 2.5f,
+        Settings.HighLimit = Widgets.HorizontalSlider(sliderRect, Settings.HighLimit, 1, 2.5f,
             false, Settings.HighLimit.ToStringPercent());
         TooltipHandler.TipRegion(sliderRect, "CropRotation.HighLimitTT".Translate());
         listing_Standard.Gap();
@@ -77,7 +77,7 @@ internal class CropRotationMod : Mod
         sliderRect = listing_Standard.GetRect(sliderHeight);
         sliderRect.width -= sliderHeight;
         sliderRect.x += sliderHeight / 2;
-        Settings.LowLimit = Widgets.HorizontalSlider_NewTemp(sliderRect, Settings.LowLimit, 0, 1f,
+        Settings.LowLimit = Widgets.HorizontalSlider(sliderRect, Settings.LowLimit, 0, 1f,
             false, Settings.LowLimit.ToStringPercent());
         TooltipHandler.TipRegion(sliderRect, "CropRotation.LowLimitTT".Translate());
         listing_Standard.Gap();
@@ -87,7 +87,7 @@ internal class CropRotationMod : Mod
         sliderRect = listing_Standard.GetRect(sliderHeight);
         sliderRect.width -= sliderHeight;
         sliderRect.x += sliderHeight / 2;
-        Settings.MaxHistory = (int)Widgets.HorizontalSlider_NewTemp(sliderRect, Settings.MaxHistory,
+        Settings.MaxHistory = (int)Widgets.HorizontalSlider(sliderRect, Settings.MaxHistory,
             2f, CropRotation.MaxSavedCrops,
             false, Settings.MaxHistory.ToString(), null, null, 1);
         TooltipHandler.TipRegion(sliderRect, "CropRotation.MaxHistoryTT".Translate());
@@ -136,7 +136,7 @@ internal class CropRotationMod : Mod
             sliderRect = listing_Standard.GetRect(sliderHeight);
             sliderRect.width -= sliderHeight;
             sliderRect.x += sliderHeight / 2;
-            Settings.FireIncreasePercent = Widgets.HorizontalSlider_NewTemp(sliderRect, Settings.FireIncreasePercent,
+            Settings.FireIncreasePercent = Widgets.HorizontalSlider(sliderRect, Settings.FireIncreasePercent,
                 0.01f, 1f, false, Settings.FireIncreasePercent.ToStringPercent());
             TooltipHandler.TipRegion(sliderRect, "CropRotation.FireIncreasePercentTT".Translate());
             listing_Standard.Gap();
@@ -153,7 +153,7 @@ internal class CropRotationMod : Mod
             sliderRect = listing_Standard.GetRect(sliderHeight);
             sliderRect.width -= sliderHeight;
             sliderRect.x += sliderHeight / 2;
-            Settings.TimeIncreasesPerQuandrum = Widgets.HorizontalSlider_NewTemp(sliderRect,
+            Settings.TimeIncreasesPerQuandrum = Widgets.HorizontalSlider(sliderRect,
                 Settings.TimeIncreasesPerQuandrum,
                 0.01f, 1f, false, Settings.TimeIncreasesPerQuandrum.ToStringPercent());
             TooltipHandler.TipRegion(sliderRect, "CropRotation.TimeIncreasesPerQuandrumTT".Translate());

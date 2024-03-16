@@ -66,7 +66,7 @@ public static class Zone_Growing_GetGizmos
                 action = delegate { component.SaveSeasonalZone(__instance); }
             };
 
-            if (!CropRotation.IsValidCrop(__instance.plantDefToGrow))
+            if (!CropRotation.IsValidCrop(__instance.PlantDefToGrow))
             {
                 component.RemoveExtraCropZone(__instance);
                 component.RemoveSeasonalZone(__instance);

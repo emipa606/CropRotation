@@ -8,7 +8,7 @@ namespace CropRotation;
 [StaticConstructorOnStartup]
 public class Command_SetExtraPlantToGrow : Command
 {
-    private static readonly List<ThingDef> tmpAvailablePlants = new List<ThingDef>();
+    private static readonly List<ThingDef> tmpAvailablePlants = [];
 
     private static readonly Texture2D NoPlantSelected = ContentFinder<Texture2D>.Get("Commands/ExtraPlantToGrow");
 
@@ -62,7 +62,7 @@ public class Command_SetExtraPlantToGrow : Command
 
         if (settables == null)
         {
-            settables = new List<IPlantToGrowSettable>();
+            settables = [];
         }
 
         if (!settables.Contains(settable))
@@ -78,7 +78,7 @@ public class Command_SetExtraPlantToGrow : Command
                 continue;
             }
 
-            if (thingDef == zone.plantDefToGrow)
+            if (thingDef == zone.PlantDefToGrow)
             {
                 continue;
             }
@@ -136,7 +136,7 @@ public class Command_SetExtraPlantToGrow : Command
     {
         if (settables == null)
         {
-            settables = new List<IPlantToGrowSettable>();
+            settables = [];
         }
 
         settables.Add(((Command_SetExtraPlantToGrow)other).settable);
@@ -180,7 +180,7 @@ public class Command_SetExtraPlantToGrow : Command
         foreach (var intVec in growingZone.Cells)
         {
             if (intVec.Roofed(growingZone.Map) &&
-                !(growingZone.Map.glowGrid.GameGlowAt(intVec, true) > 0f))
+                !(growingZone.Map.glowGrid.GroundGlowAt(intVec, true) > 0f))
             {
                 continue;
             }
@@ -203,7 +203,7 @@ public class Command_SetExtraPlantToGrow : Command
         return false;
     }
 
-    public static bool IsPlantAvailable(ThingDef plantDef, Map map)
+    protected static bool IsPlantAvailable(ThingDef plantDef, Map map)
     {
         if (!CropRotation.IsValidCrop(plantDef))
         {
@@ -227,7 +227,7 @@ public class Command_SetExtraPlantToGrow : Command
         return !plantDef.plant.mustBeWildToSow || map.Biome.AllWildPlants.Contains(plantDef);
     }
 
-    public float GetPlantListPriority(ThingDef plantDef)
+    protected float GetPlantListPriority(ThingDef plantDef)
     {
         if (plantDef.plant.IsTree)
         {
