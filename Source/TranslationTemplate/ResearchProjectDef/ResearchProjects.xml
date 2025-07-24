@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: advanced crop rotation -->
+  <AdvancedCropRotation.label>advanced crop rotation</AdvancedCropRotation.label>
+  <!-- EN: Rotating between multiple crops to increase the yield of the land.\n\nAllows rotating between any amount of crops.\nAlso allows for seasonal rotation. -->
+  <AdvancedCropRotation.description>Rotating between multiple crops to increase the yield of the land.
+
+Allows rotating between any amount of crops.
+Also allows for seasonal rotation.</AdvancedCropRotation.description>
+  <!-- EN: basic crop rotation -->
+  <BasicCropRotation.label>basic crop rotation</BasicCropRotation.label>
+  <!-- EN: The idea of rotating crops to keep the yield of the land from lowering.\n\nAllows rotating between two types of crops. -->
+  <BasicCropRotation.description>The idea of rotating crops to keep the yield of the land from lowering.
+
+Allows rotating between two types of crops.</BasicCropRotation.description>
+</LanguageData>

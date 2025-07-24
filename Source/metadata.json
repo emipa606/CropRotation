@@ -2,5 +2,18 @@
   "Continued": false,
   "CanAdd": "0",
   "CanRemove": "2",
-  "PreviewVersion": "1.5"
+  "PreviewVersion": "1.6",
+  "Patches": false,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 69015,
+  "LinesOfXML": 4628,
+  "CodeBaseSize": 77,
+  "LastXmlCleaning": "2025-07-24T20:25:02.0104136+02:00",
+  "SocialImageSet": true,
+  "FundingSet": true,
+  "SearchTags": [
+    " soil fertility",
+    "farming"
+  ]
 }

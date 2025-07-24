@@ -10,7 +10,7 @@ public class Command_SetExtraPlantToGrow : Command
 {
     private static readonly List<ThingDef> tmpAvailablePlants = [];
 
-    private static readonly Texture2D NoPlantSelected = ContentFinder<Texture2D>.Get("Commands/ExtraPlantToGrow");
+    private static readonly Texture2D noPlantSelected = ContentFinder<Texture2D>.Get("Commands/ExtraPlantToGrow");
 
     private readonly CropHistoryMapComponent component;
 
@@ -18,7 +18,7 @@ public class Command_SetExtraPlantToGrow : Command
 
     private readonly Zone_Growing zone;
 
-    public IPlantToGrowSettable settable;
+    public IPlantToGrowSettable Settable;
 
     private List<IPlantToGrowSettable> settables;
 
@@ -40,7 +40,7 @@ public class Command_SetExtraPlantToGrow : Command
         extraCrop = currentCrop;
         if (extraCrop == null)
         {
-            icon = NoPlantSelected;
+            icon = noPlantSelected;
             defaultLabel = "CropRotation.NoExtraPlantSelected".Translate();
             defaultDesc = "CropRotation.ExtraPlantDesc".Translate();
             return;
@@ -60,20 +60,17 @@ public class Command_SetExtraPlantToGrow : Command
 
         var currentExtraCrops = component.GetExtraCropsForZone(zone);
 
-        if (settables == null)
-        {
-            settables = [];
-        }
+        settables ??= [];
 
-        if (!settables.Contains(settable))
+        if (!settables.Contains(Settable))
         {
-            settables.Add(settable);
+            settables.Add(Settable);
         }
 
         tmpAvailablePlants.Clear();
         foreach (var thingDef in PlantUtility.ValidPlantTypesForGrowers(settables))
         {
-            if (!IsPlantAvailable(thingDef, settable.Map))
+            if (!IsPlantAvailable(thingDef, Settable.Map))
             {
                 continue;
             }
@@ -106,10 +103,10 @@ public class Command_SetExtraPlantToGrow : Command
                     component.SaveExtraCrop(zone, plantDef, extraCrop);
                     if (def.plant.interferesWithRoof)
                     {
-                        using var enumerator2 = settable.Cells.GetEnumerator();
+                        using var enumerator2 = Settable.Cells.GetEnumerator();
                         while (enumerator2.MoveNext())
                         {
-                            if (!enumerator2.Current.Roofed(settable.Map))
+                            if (!enumerator2.Current.Roofed(Settable.Map))
                             {
                                 continue;
                             }
@@ -134,12 +131,9 @@ public class Command_SetExtraPlantToGrow : Command
 
     public override bool InheritInteractionsFrom(Gizmo other)
     {
-        if (settables == null)
-        {
-            settables = [];
-        }
+        settables ??= [];
 
-        settables.Add(((Command_SetExtraPlantToGrow)other).settable);
+        settables.Add(((Command_SetExtraPlantToGrow)other).Settable);
         return false;
     }
 
@@ -227,7 +221,7 @@ public class Command_SetExtraPlantToGrow : Command
         return !plantDef.plant.mustBeWildToSow || map.Biome.AllWildPlants.Contains(plantDef);
     }
 
-    protected float GetPlantListPriority(ThingDef plantDef)
+    protected static float GetPlantListPriority(ThingDef plantDef)
     {
         if (plantDef.plant.IsTree)
         {

@@ -8,19 +8,19 @@ namespace CropRotation;
 
 public class CropHistoryMapComponent : MapComponent
 {
-    private Dictionary<IntVec3, int> cropEmptyTimer = new Dictionary<IntVec3, int>();
+    private Dictionary<IntVec3, int> cropEmptyTimer = new();
     private List<IntVec3> cropEmptyTimerKeys;
     private List<int> cropEmptyTimerValues;
 
-    private Dictionary<IntVec3, string> cropHistory = new Dictionary<IntVec3, string>();
+    private Dictionary<IntVec3, string> cropHistory = new();
     private List<IntVec3> cropHistoryKeys;
     private List<string> cropHistoryValues;
 
-    private Dictionary<Zone_Growing, string> extraCrops = new Dictionary<Zone_Growing, string>();
+    private Dictionary<Zone_Growing, string> extraCrops = new();
     private List<Zone_Growing> extraCropsKeys;
     private List<string> extraCropsValues;
 
-    private Dictionary<Zone_Growing, string> seasonCrops = new Dictionary<Zone_Growing, string>();
+    private Dictionary<Zone_Growing, string> seasonCrops = new();
     private List<Zone_Growing> seasonCropsKeys;
     private List<string> seasonCropsValues;
 
@@ -28,25 +28,13 @@ public class CropHistoryMapComponent : MapComponent
 
     public CropHistoryMapComponent(Map map) : base(map)
     {
-        if (extraCrops == null)
-        {
-            extraCrops = new Dictionary<Zone_Growing, string>();
-        }
+        extraCrops ??= new Dictionary<Zone_Growing, string>();
 
-        if (cropHistory == null)
-        {
-            cropHistory = new Dictionary<IntVec3, string>();
-        }
+        cropHistory ??= new Dictionary<IntVec3, string>();
 
-        if (cropEmptyTimer == null)
-        {
-            cropEmptyTimer = new Dictionary<IntVec3, int>();
-        }
+        cropEmptyTimer ??= new Dictionary<IntVec3, int>();
 
-        if (zoneToBurn == null)
-        {
-            zoneToBurn = [];
-        }
+        zoneToBurn ??= [];
     }
 
     public List<ThingDef> GetExtraCropsForZone(Zone_Growing zone)
@@ -116,10 +104,7 @@ public class CropHistoryMapComponent : MapComponent
 
     public void RemoveExtraCropZone(Zone_Growing zone)
     {
-        if (extraCrops.ContainsKey(zone))
-        {
-            extraCrops.Remove(zone);
-        }
+        extraCrops.Remove(zone);
     }
 
     public float GetYieldModifier(Plant plant)
@@ -152,29 +137,29 @@ public class CropHistoryMapComponent : MapComponent
         var iterator = 0;
         string lastCrop = null;
         string lastLastCrop = null;
-        var lowerFactor = 1 - CropRotationMod.instance.Settings.ChangeValue;
-        var higherFactor = 1 + CropRotationMod.instance.Settings.ChangeValue;
-        if (CropRotationMod.instance.Settings.AlwaysLower)
+        var lowerFactor = 1 - CropRotationMod.Instance.Settings.ChangeValue;
+        var higherFactor = 1 + CropRotationMod.Instance.Settings.ChangeValue;
+        if (CropRotationMod.Instance.Settings.AlwaysLower)
         {
-            higherFactor = 1 - (CropRotationMod.instance.Settings.ChangeValue / 2);
+            higherFactor = 1 - (CropRotationMod.Instance.Settings.ChangeValue / 2);
         }
 
         var yieldList = new List<float>();
 
         foreach (var currentCrop in history)
         {
-            if (iterator >= CropRotationMod.instance.Settings.MaxHistory)
+            if (iterator >= CropRotationMod.Instance.Settings.MaxHistory)
             {
                 break;
             }
 
             if (currentCrop.StartsWith("["))
             {
-                var effectTuple = currentCrop.Substring(1).Split(']');
+                var effectTuple = currentCrop[1..].Split(']');
 
                 switch (effectTuple[0])
                 {
-                    case "Fire" when CropRotationMod.instance.Settings.FireIncreases:
+                    case "Fire" when CropRotationMod.Instance.Settings.FireIncreases:
                         if (!float.TryParse(effectTuple[1], out var effectFloat))
                         {
                             CropRotation.LogMessage(
@@ -183,9 +168,9 @@ public class CropHistoryMapComponent : MapComponent
                             continue;
                         }
 
-                        yieldList.Add(8 + (CropRotationMod.instance.Settings.FireIncreasePercent * effectFloat));
+                        yieldList.Add(8 + (CropRotationMod.Instance.Settings.FireIncreasePercent * effectFloat));
                         continue;
-                    case "Time" when CropRotationMod.instance.Settings.TimeIncreases:
+                    case "Time" when CropRotationMod.Instance.Settings.TimeIncreases:
                         if (!int.TryParse(effectTuple[1], out var effectInt))
                         {
                             CropRotation.LogMessage(
@@ -195,7 +180,7 @@ public class CropHistoryMapComponent : MapComponent
                         }
 
                         var timeIncrease = (float)effectInt / GenDate.TicksPerQuadrum *
-                                           CropRotationMod.instance.Settings.TimeIncreasesPerQuandrum;
+                                           CropRotationMod.Instance.Settings.TimeIncreasesPerQuandrum;
                         yieldList.Add(16 + timeIncrease);
 
                         continue;
@@ -214,7 +199,7 @@ public class CropHistoryMapComponent : MapComponent
                 {
                     var timeIncrease = (float)(GenTicks.TicksGame - cropEmptyTimer[position]) /
                                        GenDate.TicksPerQuadrum *
-                                       CropRotationMod.instance.Settings.TimeIncreasesPerQuandrum;
+                                       CropRotationMod.Instance.Settings.TimeIncreasesPerQuandrum;
                     yieldList.Add(16 + timeIncrease);
                     CropRotation.LogMessage(
                         $"Increased {position} with {timeIncrease} based on time. EffectInt: {GenTicks.TicksGame - cropEmptyTimer[position]}");
@@ -223,7 +208,7 @@ public class CropHistoryMapComponent : MapComponent
                 continue;
             }
 
-            if (CropRotationMod.instance.Settings.RequireThree)
+            if (CropRotationMod.Instance.Settings.RequireThree)
             {
                 if (lastLastCrop == null)
                 {
@@ -287,8 +272,8 @@ public class CropHistoryMapComponent : MapComponent
             }
         }
 
-        yieldModifier = Math.Min(CropRotationMod.instance.Settings.HighLimit,
-            Math.Max(CropRotationMod.instance.Settings.LowLimit, yieldModifier));
+        yieldModifier = Math.Min(CropRotationMod.Instance.Settings.HighLimit,
+            Math.Max(CropRotationMod.Instance.Settings.LowLimit, yieldModifier));
 
         return yieldModifier;
     }
@@ -312,35 +297,21 @@ public class CropHistoryMapComponent : MapComponent
 
     public void SaveEmptyTimestamp(IntVec3 intVec3)
     {
-        if (cropEmptyTimer == null)
-        {
-            cropEmptyTimer = new Dictionary<IntVec3, int>();
-        }
+        cropEmptyTimer ??= new Dictionary<IntVec3, int>();
 
         cropEmptyTimer[intVec3] = GenTicks.TicksGame;
     }
 
     public void SaveZoneToBurn(Zone_Growing zone)
     {
-        if (zoneToBurn == null)
-        {
-            zoneToBurn = [];
-        }
+        zoneToBurn ??= [];
 
         zoneToBurn.Add(zone);
     }
 
     public void RemoveSeasonalZone(Zone_Growing zone)
     {
-        if (seasonCrops == null)
-        {
-            seasonCrops = new Dictionary<Zone_Growing, string>();
-        }
-
-        if (!seasonCrops.ContainsKey(zone))
-        {
-            return;
-        }
+        seasonCrops ??= new Dictionary<Zone_Growing, string>();
 
         seasonCrops.Remove(zone);
     }
@@ -371,10 +342,7 @@ public class CropHistoryMapComponent : MapComponent
 
     public void SaveSeasonalZone(Zone_Growing zone)
     {
-        if (seasonCrops == null)
-        {
-            seasonCrops = new Dictionary<Zone_Growing, string>();
-        }
+        seasonCrops ??= new Dictionary<Zone_Growing, string>();
 
         if (seasonCrops.ContainsKey(zone))
         {
@@ -413,20 +381,14 @@ public class CropHistoryMapComponent : MapComponent
 
     public List<Zone_Growing> GetZonesToBurn()
     {
-        if (zoneToBurn == null)
-        {
-            zoneToBurn = [];
-        }
+        zoneToBurn ??= [];
 
         return zoneToBurn;
     }
 
     public void RemoveZoneToBurn(Zone_Growing zone)
     {
-        if (zoneToBurn == null)
-        {
-            zoneToBurn = [];
-        }
+        zoneToBurn ??= [];
 
         if (zoneToBurn.Contains(zone))
         {
@@ -436,10 +398,7 @@ public class CropHistoryMapComponent : MapComponent
 
     public void SaveNotEmptyTimestamp(IntVec3 intVec3)
     {
-        if (cropEmptyTimer == null)
-        {
-            cropEmptyTimer = new Dictionary<IntVec3, int>();
-        }
+        cropEmptyTimer ??= new Dictionary<IntVec3, int>();
 
         if (!cropEmptyTimer.TryGetValue(intVec3, out var value))
         {
@@ -513,12 +472,8 @@ public class CropHistoryMapComponent : MapComponent
             return baseCrop;
         }
 
-        if (lastCrop != null && lastCrop.defName == crops.Last() && baseCropIsOk)
-        {
-            return baseCrop;
-        }
-
-        if (lastCrop != null && !crops.Contains(lastCrop.defName) && baseCropIsOk)
+        if (lastCrop != null && lastCrop.defName == crops.Last() && baseCropIsOk ||
+            lastCrop != null && !crops.Contains(lastCrop.defName) && baseCropIsOk)
         {
             return baseCrop;
         }
@@ -559,10 +514,10 @@ public class CropHistoryMapComponent : MapComponent
 
     public ThingDef GetPlantDefForSeason(Season season, Zone_Growing zone)
     {
-        return GetPlantDefForSeason(season, getSeasonCrops(zone));
+        return getPlantDefForSeason(season, getSeasonCrops(zone));
     }
 
-    public ThingDef GetPlantDefForSeason(Season season, List<string> seasonalCrops)
+    private static ThingDef getPlantDefForSeason(Season season, List<string> seasonalCrops)
     {
         if (!seasonalCrops.Any() || seasonalCrops.Count != 3)
         {
@@ -627,30 +582,21 @@ public class CropHistoryMapComponent : MapComponent
 
     private List<string> getCropHistory(IntVec3 intVec3)
     {
-        if (cropHistory == null)
-        {
-            cropHistory = new Dictionary<IntVec3, string>();
-        }
+        cropHistory ??= new Dictionary<IntVec3, string>();
 
         return cropHistory.TryGetValue(intVec3, out var history) ? history.Split(',').ToList() : [];
     }
 
     private List<string> getExtraCrops(Zone_Growing zone)
     {
-        if (extraCrops == null)
-        {
-            extraCrops = new Dictionary<Zone_Growing, string>();
-        }
+        extraCrops ??= new Dictionary<Zone_Growing, string>();
 
         return extraCrops.TryGetValue(zone, out var extraPlants) ? extraPlants.Split(',').ToList() : [];
     }
 
     private List<string> getSeasonCrops(Zone_Growing zone)
     {
-        if (seasonCrops == null)
-        {
-            seasonCrops = new Dictionary<Zone_Growing, string>();
-        }
+        seasonCrops ??= new Dictionary<Zone_Growing, string>();
 
         return seasonCrops.TryGetValue(zone, out var seasonPlants)
             ? seasonPlants.Split(',').ToList()

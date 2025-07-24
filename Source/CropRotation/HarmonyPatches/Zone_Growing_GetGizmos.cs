@@ -16,7 +16,7 @@ public static class Zone_Growing_GetGizmos
         foreach (var gizmo in values)
         {
             if (done || gizmo is not Command_SetPlantToGrow commandSetPlantToGrow ||
-                CropRotationMod.instance.Settings.RequireResearch &&
+                CropRotationMod.Instance.Settings.RequireResearch &&
                 !ResearchProjectDef.Named("BasicCropRotation").IsFinished)
             {
                 yield return gizmo;
@@ -83,15 +83,15 @@ public static class Zone_Growing_GetGizmos
                 switchAction.action = delegate { component.RemoveSeasonalZone(__instance); };
                 yield return new Command_SetExtraSesonalPlantToGrow(seasonalCrops[0], Season.Summer)
                 {
-                    settable = __instance
+                    Settable = __instance
                 };
                 yield return new Command_SetExtraSesonalPlantToGrow(seasonalCrops[1], Season.Fall)
                 {
-                    settable = __instance
+                    Settable = __instance
                 };
                 yield return new Command_SetExtraSesonalPlantToGrow(seasonalCrops[2], Season.Winter)
                 {
-                    settable = __instance
+                    Settable = __instance
                 };
                 yield return switchAction;
                 if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
@@ -108,10 +108,10 @@ public static class Zone_Growing_GetGizmos
             {
                 yield return new Command_SetExtraPlantToGrow(extraCrop)
                 {
-                    settable = __instance
+                    Settable = __instance
                 };
 
-                if (!CropRotationMod.instance.Settings.RequireResearch ||
+                if (!CropRotationMod.Instance.Settings.RequireResearch ||
                     ResearchProjectDef.Named("AdvancedCropRotation").IsFinished)
                 {
                     continue;
@@ -133,7 +133,7 @@ public static class Zone_Growing_GetGizmos
 
             yield return new Command_SetExtraPlantToGrow(null)
             {
-                settable = __instance
+                Settable = __instance
             };
 
             var season = GenLocalDate.Season(__instance.Map);

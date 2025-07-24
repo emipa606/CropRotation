@@ -48,20 +48,17 @@ public class Command_SetExtraSesonalPlantToGrow : Command_SetExtraPlantToGrow
         base.ProcessInput(ev);
         var list = new List<FloatMenuOption>();
 
-        if (settables == null)
-        {
-            settables = [];
-        }
+        settables ??= [];
 
-        if (!settables.Contains(settable))
+        if (!settables.Contains(Settable))
         {
-            settables.Add(settable);
+            settables.Add(Settable);
         }
 
         tmpAvailablePlants.Clear();
         foreach (var thingDef in PlantUtility.ValidPlantTypesForGrowers(settables))
         {
-            if (!IsPlantAvailable(thingDef, settable.Map))
+            if (!IsPlantAvailable(thingDef, Settable.Map))
             {
                 continue;
             }
@@ -84,10 +81,10 @@ public class Command_SetExtraSesonalPlantToGrow : Command_SetExtraPlantToGrow
                     component.SetPlantForSeason(zone, season, plantDef);
                     if (def.plant.interferesWithRoof)
                     {
-                        using var enumerator2 = settable.Cells.GetEnumerator();
+                        using var enumerator2 = Settable.Cells.GetEnumerator();
                         while (enumerator2.MoveNext())
                         {
-                            if (!enumerator2.Current.Roofed(settable.Map))
+                            if (!enumerator2.Current.Roofed(Settable.Map))
                             {
                                 continue;
                             }
@@ -110,12 +107,9 @@ public class Command_SetExtraSesonalPlantToGrow : Command_SetExtraPlantToGrow
 
     public override bool InheritInteractionsFrom(Gizmo other)
     {
-        if (settables == null)
-        {
-            settables = [];
-        }
+        settables ??= [];
 
-        settables.Add(((Command_SetExtraSesonalPlantToGrow)other).settable);
+        settables.Add(((Command_SetExtraSesonalPlantToGrow)other).Settable);
         return false;
     }
 }

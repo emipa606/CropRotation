@@ -50,7 +50,7 @@ public static class CropRotation
             return;
         }
 
-        if (!force && !CropRotationMod.instance.Settings.VerboseLogging)
+        if (!force && !CropRotationMod.Instance.Settings.VerboseLogging)
         {
             return;
         }
@@ -63,7 +63,7 @@ public static class CropRotation
         var basicResearch = DefDatabase<ResearchProjectDef>.GetNamedSilentFail("BasicCropRotation");
         var advancedResearch =
             DefDatabase<ResearchProjectDef>.GetNamedSilentFail("AdvancedCropRotation");
-        if (CropRotationMod.instance.Settings.RequireResearch)
+        if (CropRotationMod.Instance.Settings.RequireResearch)
         {
             if (basicResearch == null)
             {

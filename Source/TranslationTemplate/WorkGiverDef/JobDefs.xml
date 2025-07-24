@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: burn crops -->
+  <BurnDownCrops.label>burn crops</BurnDownCrops.label>
+  <!-- EN: burning -->
+  <BurnDownCrops.gerund>burning</BurnDownCrops.gerund>
+  <!-- EN: burn -->
+  <BurnDownCrops.verb>burn</BurnDownCrops.verb>
+</LanguageData>
