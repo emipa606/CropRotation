@@ -46,3 +46,17 @@ While XML integration details are not provided in the summarized content, typica
 - **Command and Result Prediction:** Assist with writing new player commands or gizmos by suggesting typical method signatures and interaction patterns.
 - **Yield Calculation Helpers:** Suggest helper methods or inline calculations for determining yield modifiers based on crop history and soil conditions.
 - **Seasonal System Expansion:** Propose implementations for expanding the seasonal crop system by suggesting data structure modifications or additional business logic to easily add or remove compatible crops per season.
+
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+

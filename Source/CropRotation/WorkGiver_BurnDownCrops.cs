@@ -27,6 +27,11 @@ public class WorkGiver_BurnDownCrops : WorkGiver_Scanner
 
         foreach (var zoneGrowing in zoneToBurn)
         {
+            if (zoneGrowing == null || zoneGrowing.Map != pawn.Map)
+            {
+                continue;
+            }
+
             var cellsInOrder = zoneGrowing.Cells.OrderBy(vec3 => vec3.x + vec3.z).ToArray();
             if (pawn.Map.reservationManager.CanReserve(pawn, cellsInOrder.First()))
             {
