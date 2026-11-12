@@ -1,51 +1,90 @@
-# .github/copilot-instructions.md
+# GitHub Copilot Instructions for Crop Rotation Mod
+
+Welcome to the Crop Rotation mod for RimWorld! This mod introduces a realistic farming system by implementing crop rotation to maintain soil fertility and reduce pest infestations. Below are detailed guidelines to help you efficiently contribute to the mod using GitHub Copilot.
 
 ## Mod Overview and Purpose
 
-The CropRotation mod for RimWorld introduces a system of crop rotation to the game, enhancing agricultural gameplay by adding depth and strategy to farming. The mod's goal is to simulate real-world agricultural practices, encouraging players to rotate their crops to maintain soil fertility and avoid negative consequences such as reduced yields and crop failures.
+The Crop Rotation mod aims to enhance the farming experience in RimWorld by simulating real-world crop rotation practices. It adjusts crop yields based on the number of times a particular crop is planted in the same location. Rotating crops not only improves soil fertility but also ensures a balanced agricultural cycle.
 
 ## Key Features and Systems
 
-- **Crop Rotation System:** Introduces the concept of rotating crops in growing zones. Players must manage which crops are planted over seasons to optimize yield and soil productivity.
-- **Historical Record Keeping:** Tracks crop history on each tile to determine the optimal crop for planting and to apply any penalties from poor rotation.
-- **Yield Modifiers:** Implemented to reward effective crop rotation and punish monoculture practices by reducing yields.
-- **Dynamic Plant Selection:** Commands and systems allow for seasonal plant scheduling, providing flexibility in agricultural planning.
-- **Burn Down Crops Feature:** Players can clear out older, unproductive crops to prepare for new planting cycles.
+- **Yield Decay**: Crops planted repeatedly in the same spot experience a yield decay. This simulates soil exhaustion over time.
+- **Yield Increase**: Switching to a different crop in the same growing zone increases yield, simulating nutrient replenishment.
+- **Crop Rotation Options**: Players can select multiple crops for growing zones, allowing pawns to automatically switch crops after each harvest.
+- **Seasonal Rotation**: Option to assign a different crop to grow for each season, enhancing agricultural planning.
+- **Burning Crops**: Pawns can burn crops to increase yield, an action that requires the "Basic Crop Rotation" research.
+- **Mod Options**: Configuration options to tweak yield decay, increase, and other parameters for a balanced farming experience.
 
 ## Coding Patterns and Conventions
 
-### General Conventions
+- **Mod Structure**: The mod follows a structured directory layout with separate folders for C# source files and XML definition files.
+- **Namespace and Class Naming**: Use `CropRotation` as the primary namespace and prefix class names with `CropRotation` for clarity and consistency.
+- **Harmony Patching**: Utilize Harmony for patching existing RimWorld methods to integrate custom behavior.
+- **XML Definitions**: Ensure XML files are well-organized and adhere to RimWorld's XML schema for smooth integration.
 
-- The mod is structured around several key files each representing different components of mod functionality like job drivers, work givers, and plant management.
-- Classes follow standard C# naming conventions with PascalCasing.
-- Many classes are implemented as either public for game integration or internal when encapsulation is needed within the mod.
-
-### Specific Conventions
-
-- **Command Classes:** Extend `Command` or other command-related classes to provide player-interactive features, like `Command_SetExtraPlantToGrow`.
-- **Map Components:** Use `MapComponent` for game state management related to map tiles and areas, important for managing growing zones in this mod.
-- **Static Utility Classes:** Several classes are implemented as static, such as `Plant_GetInspectString`, to provide utility methods influential during gameplay events.
-  
 ## XML Integration
 
-While XML integration details are not provided in the summarized content, typical XML usage in RimWorld mods includes:
+- **JobDefs.xml**: Contains custom job definitions for crop rotation actions.
+- **ResearchProjects.xml**: Defines research projects required for certain crop rotation features.
+- **UpdateInfo.xml**: Provides update information and compatibility details.
 
-- **Def Files:** For defining new game entities, such as plants and items, that need to be integrated into existing game systems.
-- **Patches:** Applying specific changes using XML patches to the core game files to adjust existing features without altering the original files.
+### Example XML Entry
+
+xml
+<JobDef>
+  <defName>JobDef_CropRotation</defName>
+  <label>Crop Rotation</label>
+  <description>Rotate crops to improve yield.</description>
+  <doWhileInDanger>false</doWhileInDanger>
+  <workTags>
+    <li>WorkTag_Growing</li>
+  </workTags>
+  <workType>WorkType_Growing</workType>
+</JobDef>
+
 
 ## Harmony Patching
 
-- **Purpose:** Harmony is used for patching the RimWorld codebase without directly modifying it. This is crucial for ensuring that mods remain compatible with updates to the game or with other mods.
-- **Examples:** Static classes like `Fire_TrySpread` and `Plant_DeSpawn` likely incorporate Harmony patches to extend or replace gameplay logic in specific situations.
-- **Implementation:** Implement patches within static classes to hook into methods from core game classes, providing additional or alternative functionality as needed.
+The mod extensively uses Harmony to patch existing RimWorld methods. Below is an example of a Harmony patch that modifies the yield of crops.
+
+### Example Harmony Patch
+
+csharp
+using HarmonyLib;
+using RimWorld;
+using Verse;
+
+namespace CropRotation.HarmonyPatches
+{
+    [HarmonyPatch(typeof(Plant_DeliberatelyCultivated), "DeliberatelyCultivated")]
+    public static class Plant_DeliberatelyCultivated_DeliberatelyCultivated
+    {
+        [HarmonyPostfix]
+        public static void Postfix(ref Plant __instance, ref float __result)
+        {
+            if (CropRotation.IsValidCrop(__instance))
+            {
+                __result *= CropRotation.GetYieldMultiplier(__instance);
+            }
+        }
+    }
+}
+
 
 ## Suggestions for Copilot
 
-- **Assist with Harmony Patch Methods:** Automatically suggest templates for common Harmony patch attributes such as `Prefix`, `Postfix`, and `Transpiler`.
-- **XML Templates:** Provide boilerplate XML for defining new plants and zones, potentially including integration points like research requirements or biome compatibility.
-- **Command and Result Prediction:** Assist with writing new player commands or gizmos by suggesting typical method signatures and interaction patterns.
-- **Yield Calculation Helpers:** Suggest helper methods or inline calculations for determining yield modifiers based on crop history and soil conditions.
-- **Seasonal System Expansion:** Propose implementations for expanding the seasonal crop system by suggesting data structure modifications or additional business logic to easily add or remove compatible crops per season.
+1. **Use Descriptive Class Names**: Ensure class names are descriptive and follow the `CropRotation` prefix.
+2. **Leverage Harmony for Patching**: Utilize Harmony to patch existing methods and integrate custom behavior.
+3. **Consistent XML Structure**: Maintain a consistent XML structure to ensure smooth integration and readability.
+4. **Mod Options Configuration**: Focus on implementing mod options for customizing yield parameters and behaviors.
+5. **Documentation and Comments**: Include clear documentation and comments in your code to enhance maintainability.
+
+By following these guidelines, you can contribute effectively to the Crop Rotation mod, enhancing its features and ensuring a realistic and engaging farming experience for players.
+
+Happy coding!
+
+
+This detailed `.github/copilot-instructions.md` file provides a comprehensive guide for contributors to the Crop Rotation mod, covering mod overview, key features, coding patterns, XML integration, Harmony patching, and suggestions for using GitHub Copilot.
 
 ## Project Solution Guidelines
 - Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
@@ -59,4 +98,6 @@ While XML integration details are not provided in the summarized content, typica
 ## Hard rules (must follow)
 - Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
 - Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
 

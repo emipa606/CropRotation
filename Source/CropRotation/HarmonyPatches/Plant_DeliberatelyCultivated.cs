@@ -30,7 +30,7 @@ public static class Plant_DeliberatelyCultivated
             return;
         }
 
-        if (__instance.Map.zoneManager.ZoneAt(__instance.Position) is not Zone_Growing zone)
+        if (__instance.Map?.zoneManager.ZoneAt(__instance.Position) is not Zone_Growing zone)
         {
             return;
         }

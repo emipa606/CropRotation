@@ -153,7 +153,7 @@ public class CropHistoryMapComponent : MapComponent
                 break;
             }
 
-            if (currentCrop.StartsWith("["))
+            if (currentCrop.StartsWith('['))
             {
                 var effectTuple = currentCrop[1..].Split(']');
 
@@ -472,7 +472,7 @@ public class CropHistoryMapComponent : MapComponent
             return baseCrop;
         }
 
-        if (lastCrop != null && lastCrop.defName == crops.Last() && baseCropIsOk ||
+        if (lastCrop != null && lastCrop.defName == crops[^1] && baseCropIsOk ||
             lastCrop != null && !crops.Contains(lastCrop.defName) && baseCropIsOk)
         {
             return baseCrop;
@@ -569,7 +569,7 @@ public class CropHistoryMapComponent : MapComponent
 
         foreach (var crop in crops)
         {
-            if (crop.StartsWith("["))
+            if (crop.StartsWith('['))
             {
                 continue;
             }

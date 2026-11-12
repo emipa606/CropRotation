@@ -66,11 +66,11 @@ public static class Zone_Growing_GetGizmos
                 action = delegate { component.SaveSeasonalZone(__instance); }
             };
 
-            if (!CropRotation.IsValidCrop(__instance.PlantDefToGrow))
+            if (!CropRotation.IsValidCrop(__instance?.PlantDefToGrow))
             {
                 component.RemoveExtraCropZone(__instance);
                 component.RemoveSeasonalZone(__instance);
-                if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+                if (__instance != null && __instance.AllContainedThings.Any(thing => thing.def.IsPlant))
                 {
                     yield return burnAction;
                 }
@@ -94,7 +94,7 @@ public static class Zone_Growing_GetGizmos
                     Settable = __instance
                 };
                 yield return switchAction;
-                if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+                if (__instance != null && __instance.AllContainedThings.Any(thing => thing.def.IsPlant))
                 {
                     yield return burnAction;
                 }
@@ -123,7 +123,7 @@ public static class Zone_Growing_GetGizmos
 
             if (!showAddNew)
             {
-                if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+                if (__instance != null && __instance.AllContainedThings.Any(thing => thing.def.IsPlant))
                 {
                     yield return burnAction;
                 }
@@ -136,13 +136,13 @@ public static class Zone_Growing_GetGizmos
                 Settable = __instance
             };
 
-            var season = GenLocalDate.Season(__instance.Map);
+            var season = GenLocalDate.Season(__instance?.Map);
             if (season is not Season.PermanentSummer and not Season.PermanentWinter)
             {
                 yield return switchAction;
             }
 
-            if (__instance.AllContainedThings.Any(thing => thing.def.IsPlant))
+            if (__instance != null && __instance.AllContainedThings.Any(thing => thing.def.IsPlant))
             {
                 yield return burnAction;
             }

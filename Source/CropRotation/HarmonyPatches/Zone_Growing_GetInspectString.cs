@@ -24,12 +24,15 @@ public static class Zone_Growing_GetInspectString
         }
 
         var yieldModifier = 0f;
-        foreach (var intVec3 in __instance.Cells)
+        if (__instance?.Cells != null)
         {
-            yieldModifier += cropHistoryComponent.GetYieldModifier(intVec3, __instance.Map);
-        }
+            foreach (var intVec3 in __instance.Cells)
+            {
+                yieldModifier += cropHistoryComponent.GetYieldModifier(intVec3, __instance.Map);
+            }
 
-        yieldModifier /= __instance.Cells.Count;
+            yieldModifier /= __instance.Cells.Count;
+        }
 
         var modifiedText = new StringBuilder(__result);
         modifiedText.AppendLine();
